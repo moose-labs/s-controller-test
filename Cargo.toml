@@ -1,0 +1,25 @@
+[workspace]
+resolver = "2"
+members = ["tester"]
+
+[workspace.dependencies]
+solana-client = "2.2.1"
+solana-program = "2.2.1"
+solana-sdk = "2.2.1"
+
+s-controller-lib = { git = "https://github.com/moose-labs/S", branch = "custom_address" }
+s_controller_interface = { git = "https://github.com/moose-labs/S", branch = "custom_address" }
+flat-fee-lib = { git = "https://github.com/moose-labs/S", branch = "custom_address" }
+flat_fee_interface = { git = "https://github.com/moose-labs/S", branch = "custom_address" }
+
+lido-calculator-lib = { git = "https://github.com/igneous-labs/S" }
+spl-calculator-lib = { git = "https://github.com/igneous-labs/S" }
+marinade-calculator-lib = { git = "https://github.com/igneous-labs/S" }
+wsol-calculator-lib = { git = "https://github.com/igneous-labs/S" }
+generic-pool-calculator-lib = { git = "https://github.com/igneous-labs/S" }
+lido-keys = { git = "https://github.com/igneous-labs/S" }
+marinade-keys = { git = "https://github.com/igneous-labs/S" }
+sanctum-spl-multi-stake-pool-keys = { git = "https://github.com/igneous-labs/S" }
+spl-stake-pool-keys = { git = "https://github.com/igneous-labs/S" }
+wsol-keys = { git = "https://github.com/igneous-labs/S" }
+sanctum-spl-stake-pool-keys = { git = "https://github.com/igneous-labs/S" }
