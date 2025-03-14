@@ -46,7 +46,8 @@ solana-test-validator --reset --ledger ./test-ledger \
   --clone SPMBzsVUuoHA4Jm6KunbsotaahvVikZs1JyTW6iJvbn \
   --clone HxBTMuB7cFBPVWVJjTi9iBF8MPd7mfY1QnrrWfLAySFd \
   \
-  --clone J1toso1uCk3RLmjorhTtrVwY9HJ7X8V9yYac6Y7kGCPn
+  --clone J1toso1uCk3RLmjorhTtrVwY9HJ7X8V9yYac6Y7kGCPn \
+  --clone Jito4APyf642JPZPx3hGc6WWJ8zPKtRbRs4P815Awbb
 
 # lido_calculator:           1idUSy4MGGKyKhvjSnGZ6Zc7Q4eKQcibym4BkEEw9KR
 # lido_calculator state:     7Dv8K2G3DqfkNNdPDx6qaQKmzGQu18fg6S7AjRnew6aX
@@ -79,3 +80,4 @@ solana-test-validator --reset --ledger ./test-ledger \
 
 # ---
 # jitosol:                   J1toso1uCk3RLmjorhTtrVwY9HJ7X8V9yYac6Y7kGCPn
+# jito_stake_pool:           Jito4APyf642JPZPx3hGc6WWJ8zPKtRbRs4P815Awbb

@@ -1,15 +1,31 @@
 [workspace]
 resolver = "2"
-members = ["tester"]
+members = ["libs/moose-utils", "libs/s-controller-client", "tester"]
 
 [workspace.dependencies]
 solana-client = "2.2.1"
 solana-program = "2.2.1"
 solana-sdk = "2.2.1"
+solana-signature = "2.2.1"
 
-s-controller-lib = { git = "https://github.com/moose-labs/S", branch = "custom_address" }
+solana-readonly-account = "^1.1"
+spl-associated-token-account = ">=0.1.0"
+
+cargo_metadata = "0.19.1"
+tokio = "^1"
+borsh = ">=1.0"
+bytemuck = "^1"
+
+moose-utils = { path = "./libs/moose-utils" }
+s-controller-client = { path = "./libs/s-controller-client" }
+
+s-controller-lib = { git = "https://github.com/moose-labs/S", branch = "custom_address", features = [
+    "testing",
+] }
 s_controller_interface = { git = "https://github.com/moose-labs/S", branch = "custom_address" }
-flat-fee-lib = { git = "https://github.com/moose-labs/S", branch = "custom_address" }
+flat-fee-lib = { git = "https://github.com/moose-labs/S", branch = "custom_address", features = [
+    "testing",
+] }
 flat_fee_interface = { git = "https://github.com/moose-labs/S", branch = "custom_address" }
 
 lido-calculator-lib = { git = "https://github.com/igneous-labs/S" }

@@ -1,3 +1,1 @@
-mod print_keys;
-
-pub use print_keys::*;
+pub mod print_keys;

@@ -92,4 +92,17 @@ pub fn print_keys() {
         "sanctum_spl_multi_stake_pool_program_progdata: {}",
         sanctum_spl_multi_stake_pool_keys::sanctum_spl_multi_stake_pool_program_progdata::ID
     );
+
+    //  # jitosol:                   J1toso1uCk3RLmjorhTtrVwY9HJ7X8V9yYac6Y7kGCPn
+    //  # jito_stake_pool:           Jito4APyf642JPZPx3hGc6WWJ8zPKtRbRs4P815Awbb
+}
+
+#[cfg(test)]
+mod test_print_keys {
+    use super::print_keys;
+
+    #[test]
+    fn test_print_keys() {
+        print_keys();
+    }
 }

@@ -4,13 +4,16 @@ version = "0.1.0"
 edition = "2024"
 
 [dependencies]
+moose-utils = { workspace = true }
+s-controller-client = { workspace = true }
+
 solana-client = { workspace = true }
 solana-program = { workspace = true }
 solana-sdk = { workspace = true }
 
-s-controller-lib = { workspace = true, features = ["testing"] }
+s-controller-lib = { workspace = true }
 s_controller_interface = { workspace = true }
-flat-fee-lib = { workspace = true, features = ["testing"] }
+flat-fee-lib = { workspace = true }
 flat_fee_interface = { workspace = true }
 
 lido-calculator-lib = { workspace = true }

@@ -1,0 +1,12 @@
+[package]
+name = "moose-utils"
+version = "0.1.0"
+edition = "2024"
+
+[lib]
+crate-type = ["lib"]
+name = "moose_utils"
+
+
+[dependencies]
+cargo_metadata = { workspace = true }

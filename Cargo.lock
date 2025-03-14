@@ -570,6 +570,15 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "d71b6127be86fdcfddb610f7182ac57211d4b18a3e9c82eb2d17662f2227ad6a"
 
 [[package]]
+name = "camino"
+version = "1.1.9"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "8b96ec4966b5813e2c0507c1f86115c8c5abaadc3980879c3424042a02fd1ad3"
+dependencies = [
+ "serde",
+]
+
+[[package]]
 name = "caps"
 version = "0.5.5"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -577,6 +586,29 @@ checksum = "190baaad529bcfbde9e1a19022c42781bdb6ff9de25721abdb8fd98c0807730b"
 dependencies = [
  "libc",
  "thiserror 1.0.69",
+]
+
+[[package]]
+name = "cargo-platform"
+version = "0.1.9"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "e35af189006b9c0f00a064685c727031e3ed2d8020f7ba284d78cc2671bd36ea"
+dependencies = [
+ "serde",
+]
+
+[[package]]
+name = "cargo_metadata"
+version = "0.19.2"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "dd5eb614ed4c27c5d706420e4320fbe3216ab31fa1c33cd8246ac36dae4479ba"
+dependencies = [
+ "camino",
+ "cargo-platform",
+ "semver",
+ "serde",
+ "serde_json",
+ "thiserror 2.0.12",
 ]
 
 [[package]]
@@ -934,6 +966,17 @@ dependencies = [
  "proc-macro2",
  "quote",
  "syn 1.0.109",
+]
+
+[[package]]
+name = "derive_more"
+version = "0.99.19"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "3da29a38df43d6f156149c9b43ded5e018ddff2a855cf2cfd62e8cd7d079c69f"
+dependencies = [
+ "proc-macro2",
+ "quote",
+ "syn 2.0.100",
 ]
 
 [[package]]
@@ -2060,6 +2103,13 @@ dependencies = [
 ]
 
 [[package]]
+name = "moose-utils"
+version = "0.1.0"
+dependencies = [
+ "cargo_metadata",
+]
+
+[[package]]
 name = "nix"
 version = "0.29.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -2908,6 +2958,25 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "28d3b2b1366ec20994f1fd18c3c594f05c5dd4bc44d8bb0c1c632c8d6829481f"
 
 [[package]]
+name = "s-controller-client"
+version = "0.1.0"
+dependencies = [
+ "borsh 1.5.5",
+ "flat-fee-lib",
+ "flat_fee_interface",
+ "moose-utils",
+ "s-controller-lib",
+ "s_controller_interface",
+ "solana-client",
+ "solana-program",
+ "solana-readonly-account",
+ "solana-sdk",
+ "solana-signature",
+ "spl-associated-token-account",
+ "tokio",
+]
+
+[[package]]
 name = "s-controller-lib"
 version = "1.0.0"
 source = "git+https://github.com/moose-labs/S?branch=custom_address#f3aa6574a83fff1e84fdeb4592cbc1840d7ce654"
@@ -3066,6 +3135,9 @@ name = "semver"
 version = "1.0.26"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "56e6fa9c48d24d85fb3de5ad847117517440f6beceb7798af16b4a87d616b8d0"
+dependencies = [
+ "serde",
+]
 
 [[package]]
 name = "serde"
@@ -4410,7 +4482,9 @@ version = "1.2.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "4a9f19d3af4e98f2d76e25d55935ddb1c0e3cfc458a46be9fba48fe1558706c2"
 dependencies = [
+ "derive_more",
  "solana-program",
+ "solana-sdk",
 ]
 
 [[package]]
@@ -5804,6 +5878,8 @@ dependencies = [
  "lido-keys",
  "marinade-calculator-lib",
  "marinade-keys",
+ "moose-utils",
+ "s-controller-client",
  "s-controller-lib",
  "s_controller_interface",
  "sanctum-spl-multi-stake-pool-keys",
