@@ -12,6 +12,8 @@ solana-test-validator --reset --ledger ./test-ledger \
   --bpf-program 43vcPfe8ThRLwfJqhXoM2KwqmpqQK1wCrfvZsxrULsbQ ./deps/s_controller.so \
   --bpf-program 3LqXTGs1UtPaFPtQG8WDV6a6KyeXPrajhq7yjSvAGQiY ./deps/flat_fee.so \
   \
+  --account BG4gEQXRWBVJmcE56Jc6UoL8nUfujvRo6r4dJP8wSLsW ./deps/configs/pre-fund.json \
+  --account 54GvzEwe25N55wJ8zQZ4YTFjFAnDVP6fj4ZrvVhAyafq ./deps/configs/pre-fund.json \
   --account EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v ./deps/configs/usdc.json \
   --account 3NZ9JMVBmGAqocybic2c7LQCJScmgsAZ6vQqTDzcqmJh ./deps/configs/wbtc.json \
   \

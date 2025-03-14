@@ -9,12 +9,14 @@ solana-sdk = "2.2.1"
 solana-signature = "2.2.1"
 
 solana-readonly-account = "^1.1"
+spl-token = ">=0.1.0"
 spl-associated-token-account = ">=0.1.0"
 
-cargo_metadata = "0.19.1"
-tokio = "^1"
+async-trait = ">=0.1"
 borsh = ">=1.0"
 bytemuck = "^1"
+cargo_metadata = "0.19.1"
+tokio = "^1"
 
 moose-utils = { path = "./libs/moose-utils" }
 s-controller-client = { path = "./libs/s-controller-client" }

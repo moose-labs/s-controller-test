@@ -1,3 +1,4 @@
+#[allow(dead_code)]
 pub fn print_keys() {
     println!(
         "lido_calculator:           {}",

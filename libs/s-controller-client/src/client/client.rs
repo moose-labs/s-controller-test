@@ -1,6 +1,8 @@
+use std::time::Duration;
+
 use borsh::BorshDeserialize;
 use s_controller_interface::{LstState, PoolState};
-use s_controller_lib::try_lst_state_list;
+use s_controller_lib::{try_disable_pool_authority_list, try_lst_state_list};
 use solana_client::nonblocking::rpc_client::RpcClient;
 
 use solana_sdk::{
@@ -20,14 +22,22 @@ use moose_utils::result::Result;
 use crate::utils::sorted_signers::SortedSigners;
 
 pub struct SControllerClient {
-    rpc_client: RpcClient,
+    pub rpc_client: RpcClient,
     pub payer: Keypair,
 }
 
 impl SControllerClient {
     pub fn new(payer: Keypair, url: String, commitment_config: CommitmentConfig) -> Self {
+        let timeout = Duration::from_secs(30);
+        let confirm_transaction_initial_timeout = Duration::from_secs(10);
+
         Self {
-            rpc_client: RpcClient::new_with_commitment(url, commitment_config),
+            rpc_client: RpcClient::new_with_timeouts_and_commitment(
+                url,
+                timeout,
+                commitment_config,
+                confirm_transaction_initial_timeout,
+            ),
             payer: payer.insecure_clone(),
         }
     }
@@ -77,6 +87,16 @@ impl SControllerClient {
         Ok(signature)
     }
 
+    pub async fn airdrop(&self, to: &Pubkey, lamports: u64) -> Result<Signature> {
+        let s = self.rpc_client.request_airdrop(to, lamports).await?;
+        Ok(s)
+    }
+
+    pub async fn get_balance(&self, pubkey: &Pubkey) -> Result<u64> {
+        let balance = self.rpc_client.get_balance(pubkey).await?;
+        Ok(balance)
+    }
+
     pub async fn get_account(&self, pubkey: &Pubkey) -> Result<Account> {
         let account = self.rpc_client.get_account(pubkey).await?;
         Ok(account)
@@ -107,6 +127,16 @@ impl SControllerClient {
 
         // Convert the slice to a Vec
         Ok(lst_state_slice.to_vec())
+    }
+
+    pub async fn get_disable_pool_authority_list(&self) -> Result<Vec<Pubkey>> {
+        let account = self
+            .get_account(&&self.get_disable_pool_authority_list_pubkey())
+            .await?;
+        let disable_pool_authority_list = try_disable_pool_authority_list(&account.data)?;
+
+        // Convert the slice to a Vec
+        Ok(disable_pool_authority_list.to_vec())
     }
 
     pub fn get_program_id(&self) -> Pubkey {
