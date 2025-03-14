@@ -23,7 +23,7 @@ impl SControllerClient {
         Ok(ix)
     }
 
-    /// required signer: current_signer_authority
+    /// required signer: current_rebalance_authority
     pub async fn get_set_rebalance_authority_ix(
         &self,
         new_rebalance_authority: &Pubkey,

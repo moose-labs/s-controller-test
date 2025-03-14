@@ -22,7 +22,7 @@ use moose_utils::result::Result;
 use crate::utils::sorted_signers::SortedSigners;
 
 pub struct SControllerClient {
-    pub rpc_client: RpcClient,
+    rpc_client: RpcClient,
     pub payer: Keypair,
 }
 

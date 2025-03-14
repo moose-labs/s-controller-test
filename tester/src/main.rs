@@ -1,17 +1,20 @@
-use helper::instructions::CreateMint;
+use helper::instructions::{CreateMint, SController};
 use moose_utils::result::Result;
 use s_controller_client::client::SControllerClient;
-use solana_sdk::{commitment_config::CommitmentConfig, signature::read_keypair_file};
+use solana_sdk::{
+    commitment_config::CommitmentConfig, signature::read_keypair_file, signer::Signer,
+};
 use utils::paths::get_deps_configs;
 
-mod helper;
-mod utils;
+pub mod helper;
+pub mod utils;
 
 #[tokio::main]
 async fn main() -> Result<()> {
     println!("Hello, world!");
 
-    let user_keypair = read_keypair_file(get_deps_configs("local-user.json")).unwrap();
+    let payer = read_keypair_file(get_deps_configs("user1.json")).unwrap();
+    let admin = read_keypair_file(get_deps_configs("admin.json")).unwrap();
     let url = "http://localhost:8899";
 
     let initial_authority_keypair = read_keypair_file(get_deps_configs(
@@ -20,21 +23,24 @@ async fn main() -> Result<()> {
     .unwrap();
 
     let s_controller_client =
-        SControllerClient::new(user_keypair, url.to_string(), CommitmentConfig::processed());
+        SControllerClient::new(payer, url.to_string(), CommitmentConfig::processed());
 
     let lp_token_mint = s_controller_client
         .create_mint(&s_controller_client.get_initial_authority_pubkey(), 9)
         .await?;
 
-    let ix = s_controller_client
-        .get_initialize_ix(&lp_token_mint)
+    s_controller_client
+        .initialize_s_controller_if_possible(&lp_token_mint, &initial_authority_keypair)
         .await?;
 
-    let s = s_controller_client
-        .process_instruction(ix, &vec![&initial_authority_keypair])
+    s_controller_client
+        .set_admin_if_not_match(&admin.pubkey(), &initial_authority_keypair)
         .await?;
 
-    println!("sig {}", s.to_string());
+    s_controller_client.disable_pool_if_possible(&admin).await?;
+    s_controller_client.disable_pool_if_possible(&admin).await?;
+    s_controller_client.enable_pool_if_possible(&admin).await?;
+    s_controller_client.enable_pool_if_possible(&admin).await?;
 
     Ok(())
 }

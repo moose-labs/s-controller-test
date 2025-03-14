@@ -52,12 +52,16 @@ solana-test-validator --reset --ledger ./test-ledger \
   --clone Jito4APyf642JPZPx3hGc6WWJ8zPKtRbRs4P815Awbb
 
 # lido_calculator:           1idUSy4MGGKyKhvjSnGZ6Zc7Q4eKQcibym4BkEEw9KR
+# lido_calculator_data:      HkuX8A8Q6XQjimK3LP6vfhAZrm4UJgUZTRR7uYbzj3FH
 # lido_calculator state:     7Dv8K2G3DqfkNNdPDx6qaQKmzGQu18fg6S7AjRnew6aX
 # spl_calculator:            sp1V4h2gWorkGhVcazBc22Hfo2f5sd7jcjT4EDPrWFF
+# spl_calculator_data:       26GWfXL2eYH8AtX9b6Uw8PBrjLu98sWvc9wrfxLj4kLF
 # spl_calculator state:      7orJ4kDhn1Ewp54j29tBzUWDFGhyimhYi7sxybZcphHd
 # marinade_calculator:       mare3SCyfZkAndpBRBeonETmkCCB3TJTTrz8ZN2dnhP
+# marinade_calculator_data:  3E5A8HNuvJJKYa58TZddiVMnc8ZTsRVw4pmrww3xgcQ5
 # marinade_calculator state: FMbUjYFtqgm4Zfpg7MguZp33RQ3tvkd22NgaCCAs3M6E
 # wsol_calculator:           wsoGmxQLSvwWpuaidCApxN5kEowLe2HLQLJhCQnj4bE
+# wsol_calculator_data:      JCiy5grhSYeceD5FAd9AKQa9p2t7vXe6zC3sUDVjWMrx
 
 # stsol:                     7dHbWXmci3dT8UFYWYZweBLXgycu7Y3iL6trKn1Y7ARj
 # msol:                      mSoLzYCxHdYgdzU16g5QSh3i5K3z3KZK7ytfqcJm7So

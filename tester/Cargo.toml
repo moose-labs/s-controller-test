@@ -33,3 +33,6 @@ spl-stake-pool-keys = { workspace = true }
 wsol-keys = { workspace = true }
 sanctum-spl-stake-pool-keys = { workspace = true }
 sanctum-spl-multi-stake-pool-keys = { workspace = true }
+
+[dev-dependencies]
+serial_test = "3.2.0"
