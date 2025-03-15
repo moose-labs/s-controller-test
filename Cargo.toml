@@ -1,6 +1,12 @@
 [workspace]
 resolver = "2"
-members = ["libs/moose-utils", "libs/s-controller-client", "libs/flat-fee-client", "tester"]
+members = [
+    "libs/moose-utils",
+    "libs/s-controller-client",
+    "libs/flat-fee-client",
+    "libs/marinade-calculator-client",
+    "tester"
+]
 
 [workspace.dependencies]
 solana-client = "2.2.1"
@@ -21,6 +27,7 @@ tokio = "^1"
 moose-utils = { path = "./libs/moose-utils" }
 s-controller-client = { path = "./libs/s-controller-client" }
 flat-fee-client = { path = "./libs/flat-fee-client" }
+marinade-calculator-client = { path = "./libs/marinade-calculator-client" }
 
 s-controller-lib = { git = "https://github.com/moose-labs/S", branch = "custom_address", features = [
     "testing",
@@ -31,11 +38,13 @@ flat-fee-lib = { git = "https://github.com/moose-labs/S", branch = "custom_addre
 ] }
 flat_fee_interface = { git = "https://github.com/moose-labs/S", branch = "custom_address" }
 
+
 lido-calculator-lib = { git = "https://github.com/igneous-labs/S" }
 spl-calculator-lib = { git = "https://github.com/igneous-labs/S" }
 marinade-calculator-lib = { git = "https://github.com/igneous-labs/S" }
 wsol-calculator-lib = { git = "https://github.com/igneous-labs/S" }
 generic-pool-calculator-lib = { git = "https://github.com/igneous-labs/S" }
+generic_pool_calculator_interface = { git = "https://github.com/igneous-labs/S" }
 lido-keys = { git = "https://github.com/igneous-labs/S" }
 marinade-keys = { git = "https://github.com/igneous-labs/S" }
 sanctum-spl-multi-stake-pool-keys = { git = "https://github.com/igneous-labs/S" }

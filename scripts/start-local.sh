@@ -17,36 +17,35 @@ solana-test-validator --reset --ledger ./test-ledger \
   --account EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v ./deps/configs/usdc.json \
   --account 3NZ9JMVBmGAqocybic2c7LQCJScmgsAZ6vQqTDzcqmJh ./deps/configs/wbtc.json \
   \
-  --clone 1idUSy4MGGKyKhvjSnGZ6Zc7Q4eKQcibym4BkEEw9KR \
+  --clone-upgradeable-program 1idUSy4MGGKyKhvjSnGZ6Zc7Q4eKQcibym4BkEEw9KR \
   --clone 7Dv8K2G3DqfkNNdPDx6qaQKmzGQu18fg6S7AjRnew6aX \
   \
-  --clone sp1V4h2gWorkGhVcazBc22Hfo2f5sd7jcjT4EDPrWFF \
+  --clone-upgradeable-program sp1V4h2gWorkGhVcazBc22Hfo2f5sd7jcjT4EDPrWFF \
   --clone 7orJ4kDhn1Ewp54j29tBzUWDFGhyimhYi7sxybZcphHd \
   \
-  --clone mare3SCyfZkAndpBRBeonETmkCCB3TJTTrz8ZN2dnhP \
-  --clone 3E5A8HNuvJJKYa58TZddiVMnc8ZTsRVw4pmrww3xgcQ5 \
+  --clone-upgradeable-program mare3SCyfZkAndpBRBeonETmkCCB3TJTTrz8ZN2dnhP \
   --clone FMbUjYFtqgm4Zfpg7MguZp33RQ3tvkd22NgaCCAs3M6E \
   \
-  --clone wsoGmxQLSvwWpuaidCApxN5kEowLe2HLQLJhCQnj4bE \
+  --clone-upgradeable-program wsoGmxQLSvwWpuaidCApxN5kEowLe2HLQLJhCQnj4bE \
   \
   --clone 7dHbWXmci3dT8UFYWYZweBLXgycu7Y3iL6trKn1Y7ARj \
   --clone mSoLzYCxHdYgdzU16g5QSh3i5K3z3KZK7ytfqcJm7So \
   \
-  --clone CrX7kMhLC3cSsXJdT7JDgqrRVWGnUpX3gfEfxxU2NVLi \
+  --clone-upgradeable-program CrX7kMhLC3cSsXJdT7JDgqrRVWGnUpX3gfEfxxU2NVLi \
   --clone CHZNLhDXKrsXBmmv947RFciquwBsn2NdABmhpxoX3wgZ \
   --clone 49Yi1TKkNyYjPAFdR9LBvoHcUjuPX4Df5T5yv39w2XTn \
   \
-  --clone MarBmsSgKXdrN1egZf5sqe1TMai9K1rChYNDJgjq7aD \
+  --clone-upgradeable-program MarBmsSgKXdrN1egZf5sqe1TMai9K1rChYNDJgjq7aD \
   --clone 4PQH9YmfuKrVyZaibkLYpJZPv2FPaybhq2GAuBcWMSBf \
   --clone 8szGkuLTAux9XMgZ2vtY39jVSowEcpBfFfD8hXSEqdGC \
   \
-  --clone SPoo1Ku8WFXoNDMHPsrGSTSG1Y47rzgn41SLUNakuHy \
+  --clone-upgradeable-program SPoo1Ku8WFXoNDMHPsrGSTSG1Y47rzgn41SLUNakuHy \
   --clone EmiU8AQkB2sswTxVB6aCmsAJftoowZGGDXuytm6X65R3 \
   \
-  --clone SP12tWFxD9oJsVWNavTTBZvMbA6gkAmxtVgxdqvyvhY \
+  --clone-upgradeable-program SP12tWFxD9oJsVWNavTTBZvMbA6gkAmxtVgxdqvyvhY \
   --clone Cn5fegqLh8Fmvffisr4Wk3LmuaUgMMzTFfEuidpZFsvV \
   \
-  --clone SPMBzsVUuoHA4Jm6KunbsotaahvVikZs1JyTW6iJvbn \
+  --clone-upgradeable-program SPMBzsVUuoHA4Jm6KunbsotaahvVikZs1JyTW6iJvbn \
   --clone HxBTMuB7cFBPVWVJjTi9iBF8MPd7mfY1QnrrWfLAySFd \
   \
   --clone J1toso1uCk3RLmjorhTtrVwY9HJ7X8V9yYac6Y7kGCPn \

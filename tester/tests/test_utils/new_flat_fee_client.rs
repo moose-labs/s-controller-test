@@ -10,9 +10,8 @@ pub fn new_flat_fee_client() -> Result<(FlatFeeClient, Keypair)> {
     let payer = read_keypair_file(get_deps_configs("user2.json"))?;
     let url = "http://localhost:8899";
 
-    let initial_manager_keypair = read_keypair_file(get_deps_configs(
-        "s-controller-test-initial-authority-key.json",
-    ))?;
+    let initial_manager_keypair =
+        read_keypair_file(get_deps_configs("flat-fee-test-initial-manager-key.json"))?;
 
     let flat_fee_client = FlatFeeClient::new(payer, url.to_string(), CommitmentConfig::processed());
 

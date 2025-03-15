@@ -64,27 +64,27 @@ fn build_test_validator_args() -> Vec<String> {
         "3NZ9JMVBmGAqocybic2c7LQCJScmgsAZ6vQqTDzcqmJh".into(), // WBTC account;
         wbtc_json,
         // Clones:
-        "--clone".into(),
+        "--clone-upgradeable-program".into(),
         "f1tUoNEKrDp1oeGn4zxr7bh41eN6VcfHjfrL3ZqQday".into(), // flat_fee program (live)
-        "--clone".into(),
+        "--clone-upgradeable-program".into(),
         "1idUSy4MGGKyKhvjSnGZ6Zc7Q4eKQcibym4BkEEw9KR".into(), // lido_calculator
         // "--clone".into(),
         // "HkuX8A8Q6XQjimK3LP6vfhAZrm4UJgUZTRR7uYbzj3FH".into(), // lido_calculator_data
         "--clone".into(),
         "7Dv8K2G3DqfkNNdPDx6qaQKmzGQu18fg6S7AjRnew6aX".into(), // lido_calculator_state
-        "--clone".into(),
+        "--clone-upgradeable-program".into(),
         "sp1V4h2gWorkGhVcazBc22Hfo2f5sd7jcjT4EDPrWFF".into(), // spl_calculator
         // "--clone".into(),
         // "26GWfXL2eYH8AtX9b6Uw8PBrjLu98sWvc9wrfxLj4kLF".into(), // spl_calculator_data
         "--clone".into(),
         "7orJ4kDhn1Ewp54j29tBzUWDFGhyimhYi7sxybZcphHd".into(), // spl_calculator_state
-        "--clone".into(),
+        "--clone-upgradeable-program".into(),
         "mare3SCyfZkAndpBRBeonETmkCCB3TJTTrz8ZN2dnhP".into(), // marinade_calculator
-        "--clone".into(),
-        "3E5A8HNuvJJKYa58TZddiVMnc8ZTsRVw4pmrww3xgcQ5".into(), // marinade_calculator_data
+        // "--clone".into(),
+        // "3E5A8HNuvJJKYa58TZddiVMnc8ZTsRVw4pmrww3xgcQ5".into(), // marinade_calculator_data
         "--clone".into(),
         "FMbUjYFtqgm4Zfpg7MguZp33RQ3tvkd22NgaCCAs3M6E".into(), // marinade_calculator_state
-        "--clone".into(),
+        "--clone-upgradeable-program".into(),
         "wsoGmxQLSvwWpuaidCApxN5kEowLe2HLQLJhCQnj4bE".into(), // wsol_calculator
         // "--clone".into(),
         // "JCiy5grhSYeceD5FAd9AKQa9p2t7vXe6zC3sUDVjWMrx".into(), // wsol_calculator_data
@@ -92,30 +92,30 @@ fn build_test_validator_args() -> Vec<String> {
         "7dHbWXmci3dT8UFYWYZweBLXgycu7Y3iL6trKn1Y7ARj".into(), // stsol mint
         "--clone".into(),
         "mSoLzYCxHdYgdzU16g5QSh3i5K3z3KZK7ytfqcJm7So".into(), // msol mint
-        "--clone".into(),
+        "--clone-upgradeable-program".into(),
         "CrX7kMhLC3cSsXJdT7JDgqrRVWGnUpX3gfEfxxU2NVLi".into(), // lido_program
-        "--clone".into(),
-        "CHZNLhDXKrsXBmmv947RFciquwBsn2NdABmhpxoX3wgZ".into(), // lido_program_progdata
+        // "--clone".into(),
+        // "CHZNLhDXKrsXBmmv947RFciquwBsn2NdABmhpxoX3wgZ".into(), // lido_program_progdata
         "--clone".into(),
         "49Yi1TKkNyYjPAFdR9LBvoHcUjuPX4Df5T5yv39w2XTn".into(), // lido_state
-        "--clone".into(),
+        "--clone-upgradeable-program".into(),
         "MarBmsSgKXdrN1egZf5sqe1TMai9K1rChYNDJgjq7aD".into(), // marinade_program
-        "--clone".into(),
-        "4PQH9YmfuKrVyZaibkLYpJZPv2FPaybhq2GAuBcWMSBf".into(), // marinade_program_progdata
+        // "--clone".into(),
+        // "4PQH9YmfuKrVyZaibkLYpJZPv2FPaybhq2GAuBcWMSBf".into(), // marinade_program_progdata
         "--clone".into(),
         "8szGkuLTAux9XMgZ2vtY39jVSowEcpBfFfD8hXSEqdGC".into(), // marinade_state
-        "--clone".into(),
+        "--clone-upgradeable-program".into(),
         "SPoo1Ku8WFXoNDMHPsrGSTSG1Y47rzgn41SLUNakuHy".into(), // spl_stake_pool_program
-        "--clone".into(),
-        "EmiU8AQkB2sswTxVB6aCmsAJftoowZGGDXuytm6X65R3".into(), // spl_stake_pool_program_progdata
-        "--clone".into(),
+        // "--clone".into(),
+        // "EmiU8AQkB2sswTxVB6aCmsAJftoowZGGDXuytm6X65R3".into(), // spl_stake_pool_program_progdata
+        "--clone-upgradeable-program".into(),
         "SP12tWFxD9oJsVWNavTTBZvMbA6gkAmxtVgxdqvyvhY".into(), // sanctum_spl_stake_pool_program
-        "--clone".into(),
-        "Cn5fegqLh8Fmvffisr4Wk3LmuaUgMMzTFfEuidpZFsvV".into(), // sanctum_spl_stake_pool_program_progdata
-        "--clone".into(),
+        // "--clone".into(),
+        // "Cn5fegqLh8Fmvffisr4Wk3LmuaUgMMzTFfEuidpZFsvV".into(), // sanctum_spl_stake_pool_program_progdata
+        "--clone-upgradeable-program".into(),
         "SPMBzsVUuoHA4Jm6KunbsotaahvVikZs1JyTW6iJvbn".into(), // sanctum_spl_multi_stake_pool_program
-        "--clone".into(),
-        "HxBTMuB7cFBPVWVJjTi9iBF8MPd7mfY1QnrrWfLAySFd".into(), // sanctum_spl_multi_stake_pool_program_progdata
+        // "--clone".into(),
+        // "HxBTMuB7cFBPVWVJjTi9iBF8MPd7mfY1QnrrWfLAySFd".into(), // sanctum_spl_multi_stake_pool_program_progdata
         "--clone".into(),
         "J1toso1uCk3RLmjorhTtrVwY9HJ7X8V9yYac6Y7kGCPn".into(), // jitosol mint
         "--clone".into(),

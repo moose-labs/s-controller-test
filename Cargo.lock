@@ -2006,6 +2006,24 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "30bde2b3dc3671ae49d8e2e9f044c7c005836e7a023ee57cffa25ab82764bb9e"
 
 [[package]]
+name = "marinade-calculator-client"
+version = "0.1.0"
+dependencies = [
+ "borsh 1.5.5",
+ "generic_pool_calculator_interface",
+ "marinade-calculator-lib",
+ "marinade-keys",
+ "moose-utils",
+ "solana-client",
+ "solana-program",
+ "solana-readonly-account",
+ "solana-sdk",
+ "solana-signature",
+ "spl-associated-token-account",
+ "tokio",
+]
+
+[[package]]
 name = "marinade-calculator-lib"
 version = "1.0.0"
 source = "git+https://github.com/igneous-labs/S#5fe9f64a00f7096317148c91789497b1a64fcb34"
@@ -5934,6 +5952,7 @@ dependencies = [
  "generic-pool-calculator-lib",
  "lido-calculator-lib",
  "lido-keys",
+ "marinade-calculator-client",
  "marinade-calculator-lib",
  "marinade-keys",
  "moose-utils",
