@@ -1,0 +1,28 @@
+[package]
+name = "spl-calculator-client"
+version = "0.1.0"
+edition = "2021"
+
+[features]
+testing = ["spl-calculator-lib/testing"]
+
+[lib]
+crate-type = ["lib"]
+name = "spl_calculator_client"
+
+[dependencies]
+moose-utils = { workspace = true }
+
+tokio = { workspace = true }
+borsh = { workspace = true }
+
+solana-client = { workspace = true }
+solana-program = { workspace = true }
+solana-sdk = { workspace = true }
+solana-signature = { workspace = true }
+solana-readonly-account = { workspace = true, features = ["solana-sdk"] }
+spl-associated-token-account = { workspace = true }
+
+spl-calculator-lib = { workspace = true }
+spl-stake-pool-keys = { workspace = true }
+generic_pool_calculator_interface = { workspace = true }

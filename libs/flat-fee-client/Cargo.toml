@@ -1,0 +1,27 @@
+[package]
+name = "flat-fee-client"
+version = "0.1.0"
+edition = "2021"
+
+[features]
+testing = ["flat-fee-lib/testing"]
+
+[lib]
+crate-type = ["lib"]
+name = "flat_fee_client"
+
+[dependencies]
+moose-utils = { workspace = true }
+
+tokio = { workspace = true }
+borsh = { workspace = true }
+
+solana-client = { workspace = true }
+solana-program = { workspace = true }
+solana-sdk = { workspace = true }
+solana-signature = { workspace = true }
+solana-readonly-account = { workspace = true, features = ["solana-sdk"] }
+spl-associated-token-account = { workspace = true }
+
+flat-fee-lib = { workspace = true }
+flat_fee_interface = { workspace = true }

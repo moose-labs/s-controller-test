@@ -1,0 +1,29 @@
+[package]
+name = "s-controller-client"
+version = "0.1.0"
+edition = "2021"
+
+[features]
+testing = ["s-controller-lib/testing"]
+
+[lib]
+crate-type = ["lib"]
+name = "s_controller_client"
+
+[dependencies]
+moose-utils = { workspace = true }
+
+tokio = { workspace = true }
+borsh = { workspace = true }
+
+solana-client = { workspace = true }
+solana-program = { workspace = true }
+solana-sdk = { workspace = true }
+solana-signature = { workspace = true }
+solana-readonly-account = { workspace = true, features = ["solana-sdk"] }
+spl-associated-token-account = { workspace = true }
+
+s-controller-lib = { workspace = true }
+s_controller_interface = { workspace = true }
+# flat-fee-lib = { workspace = true }
+# flat_fee_interface = { workspace = true }
