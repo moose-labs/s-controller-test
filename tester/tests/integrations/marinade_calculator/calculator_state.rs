@@ -12,6 +12,8 @@ async fn test_calculator_state() -> Result<()> {
 
     let calculator_state = marinade_calculator_client.get_calculator_state().await?;
 
+    println!("marinade calculator_state: {:?}", calculator_state);
+
     assert!(calculator_state.last_upgrade_slot >= 229946024);
     assert_eq!(
         calculator_state.manager,

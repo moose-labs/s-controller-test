@@ -32,21 +32,17 @@ solana-test-validator --reset --ledger ./test-ledger \
   --clone mSoLzYCxHdYgdzU16g5QSh3i5K3z3KZK7ytfqcJm7So \
   \
   --clone-upgradeable-program CrX7kMhLC3cSsXJdT7JDgqrRVWGnUpX3gfEfxxU2NVLi \
-  --clone CHZNLhDXKrsXBmmv947RFciquwBsn2NdABmhpxoX3wgZ \
   --clone 49Yi1TKkNyYjPAFdR9LBvoHcUjuPX4Df5T5yv39w2XTn \
   \
   --clone-upgradeable-program MarBmsSgKXdrN1egZf5sqe1TMai9K1rChYNDJgjq7aD \
-  --clone 4PQH9YmfuKrVyZaibkLYpJZPv2FPaybhq2GAuBcWMSBf \
   --clone 8szGkuLTAux9XMgZ2vtY39jVSowEcpBfFfD8hXSEqdGC \
   \
   --clone-upgradeable-program SPoo1Ku8WFXoNDMHPsrGSTSG1Y47rzgn41SLUNakuHy \
   --clone EmiU8AQkB2sswTxVB6aCmsAJftoowZGGDXuytm6X65R3 \
   \
   --clone-upgradeable-program SP12tWFxD9oJsVWNavTTBZvMbA6gkAmxtVgxdqvyvhY \
-  --clone Cn5fegqLh8Fmvffisr4Wk3LmuaUgMMzTFfEuidpZFsvV \
   \
   --clone-upgradeable-program SPMBzsVUuoHA4Jm6KunbsotaahvVikZs1JyTW6iJvbn \
-  --clone HxBTMuB7cFBPVWVJjTi9iBF8MPd7mfY1QnrrWfLAySFd \
   \
   --clone J1toso1uCk3RLmjorhTtrVwY9HJ7X8V9yYac6Y7kGCPn \
   --clone Jito4APyf642JPZPx3hGc6WWJ8zPKtRbRs4P815Awbb
