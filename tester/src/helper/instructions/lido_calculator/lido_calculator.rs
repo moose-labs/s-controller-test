@@ -1,11 +1,11 @@
-use marinade_calculator_client::client::MarinadeCalculatorClient;
+use lido_calculator_client::client::LidoCalculatorClient;
 use moose_utils::result::Result;
 use solana_sdk::{pubkey::Pubkey, signature::Keypair, signer::Signer};
 
 use crate::helper::decode_u64_from_return_data;
 
 #[async_trait::async_trait]
-pub trait MarinadeCalculator {
+pub trait LidoCalculator {
     async fn is_initialized(&self) -> Result<bool>;
 
     async fn init_if_possible(&self) -> Result<bool>;
@@ -20,7 +20,7 @@ pub trait MarinadeCalculator {
 }
 
 #[async_trait::async_trait]
-impl MarinadeCalculator for MarinadeCalculatorClient {
+impl LidoCalculator for LidoCalculatorClient {
     async fn is_initialized(&self) -> Result<bool> {
         let ret = self.get_calculator_state().await;
 
@@ -30,7 +30,7 @@ impl MarinadeCalculator for MarinadeCalculatorClient {
     async fn init_if_possible(&self) -> Result<bool> {
         if self.is_initialized().await? {
             // return lp_token_mint when initialize
-            println!("Marinade calculator already initialized");
+            println!("Lido calculator already initialized");
             return Ok(false);
         }
 

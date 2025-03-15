@@ -1,14 +1,14 @@
 [package]
-name = "marinade-calculator-client"
+name = "spl-calculator-client"
 version = "0.1.0"
 edition = "2021"
 
 [features]
-testing = ["marinade-calculator-lib/testing"]
+testing = ["spl-calculator-lib/testing"]
 
 [lib]
 crate-type = ["lib"]
-name = "marinade_calculator_client"
+name = "spl_calculator_client"
 
 [dependencies]
 moose-utils = { workspace = true }
@@ -23,6 +23,6 @@ solana-signature = { workspace = true }
 solana-readonly-account = { workspace = true, features = ["solana-sdk"] }
 spl-associated-token-account = { workspace = true }
 
-marinade-calculator-lib = { workspace = true }
-marinade-keys = { workspace = true }
+spl-calculator-lib = { workspace = true }
+spl-keys = { workspace = true }
 generic_pool_calculator_interface = { workspace = true }

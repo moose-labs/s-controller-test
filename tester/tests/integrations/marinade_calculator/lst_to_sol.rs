@@ -5,7 +5,7 @@ use crate::test_utils::{new_marinade_calculator_client, TestValidator};
 
 #[tokio::test()]
 #[serial_test::serial]
-async fn test_sol_to_lst() -> Result<()> {
+async fn test_lst_to_sol() -> Result<()> {
     let _validator = TestValidator::new().await?;
 
     let (marinade_calculator_client, initial_manager_keypair) = new_marinade_calculator_client()?;
@@ -17,7 +17,7 @@ async fn test_sol_to_lst() -> Result<()> {
 
     let amount = 1_000_000_000;
 
-    let value = marinade_calculator_client.sol_to_lst(amount).await?;
+    let value = marinade_calculator_client.lst_to_sol(amount).await?;
 
     assert!(value.is_some());
     assert!(value.unwrap() > 0);

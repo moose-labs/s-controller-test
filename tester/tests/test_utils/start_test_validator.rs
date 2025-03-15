@@ -63,10 +63,10 @@ fn build_test_validator_args() -> Vec<String> {
         marinade_calculator_so.into(),
         // accounts
         "--account".into(),
-        "BG4gEQXRWBVJmcE56Jc6UoL8nUfujvRo6r4dJP8wSLsW".into(), // pre-fund account (auth)
+        "BG4gEQXRWBVJmcE56Jc6UoL8nUfujvRo6r4dJP8wSLsW".into(), // pre-fund account (user2)
         pre_fund_json.clone(),
         "--account".into(),
-        "54GvzEwe25N55wJ8zQZ4YTFjFAnDVP6fj4ZrvVhAyafq".into(), // pre-fund account (user)
+        "54GvzEwe25N55wJ8zQZ4YTFjFAnDVP6fj4ZrvVhAyafq".into(), // pre-fund account (user1)
         pre_fund_json,
         "--account".into(),
         "EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v".into(), // USDC mint account

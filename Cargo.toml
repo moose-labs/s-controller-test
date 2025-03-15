@@ -5,6 +5,7 @@ members = [
     "libs/s-controller-client",
     "libs/flat-fee-client",
     "libs/marinade-calculator-client",
+    "libs/lido-calculator-client",
     "tester",
 ]
 
@@ -19,6 +20,7 @@ spl-token = ">=0.1.0"
 spl-associated-token-account = ">=0.1.0"
 
 async-trait = ">=0.1"
+base64 = "0.22.1"
 borsh = ">=0.9, <1"
 bytemuck = "^1"
 cargo_metadata = "0.19.1"
@@ -28,24 +30,16 @@ moose-utils = { path = "./libs/moose-utils" }
 s-controller-client = { path = "./libs/s-controller-client" }
 flat-fee-client = { path = "./libs/flat-fee-client" }
 marinade-calculator-client = { path = "./libs/marinade-calculator-client" }
+lido-calculator-client = { path = "./libs/lido-calculator-client" }
+spl-calculator-client = { path = "./libs/spl-calculator-client" }
 
-s-controller-lib = { git = "https://github.com/moose-labs/S", branch = "custom_address", features = [
-    "testing",
-] }
+s-controller-lib = { git = "https://github.com/moose-labs/S", branch = "custom_address" }
 s_controller_interface = { git = "https://github.com/moose-labs/S", branch = "custom_address" }
-flat-fee-lib = { git = "https://github.com/moose-labs/S", branch = "custom_address", features = [
-    "testing",
-] }
+flat-fee-lib = { git = "https://github.com/moose-labs/S", branch = "custom_address" }
 flat_fee_interface = { git = "https://github.com/moose-labs/S", branch = "custom_address" }
-lido-calculator-lib = { git = "https://github.com/moose-labs/S", branch = "custom_address", features = [
-    "testing",
-] }
-spl-calculator-lib = { git = "https://github.com/moose-labs/S", branch = "custom_address", features = [
-    "testing",
-] }
-marinade-calculator-lib = { git = "https://github.com/moose-labs/S", branch = "custom_address", features = [
-    "testing",
-] }
+lido-calculator-lib = { git = "https://github.com/moose-labs/S", branch = "custom_address" }
+spl-calculator-lib = { git = "https://github.com/moose-labs/S", branch = "custom_address" }
+marinade-calculator-lib = { git = "https://github.com/moose-labs/S", branch = "custom_address" }
 wsol-calculator-lib = { git = "https://github.com/moose-labs/S", branch = "custom_address" }
 generic-pool-calculator-lib = { git = "https://github.com/moose-labs/S", branch = "custom_address" }
 generic_pool_calculator_interface = { git = "https://github.com/moose-labs/S", branch = "custom_address" }

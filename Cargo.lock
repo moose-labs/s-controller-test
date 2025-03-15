@@ -1946,6 +1946,24 @@ dependencies = [
 ]
 
 [[package]]
+name = "lido-calculator-client"
+version = "0.1.0"
+dependencies = [
+ "borsh 0.10.4",
+ "generic_pool_calculator_interface",
+ "lido-calculator-lib",
+ "lido-keys",
+ "moose-utils",
+ "solana-client",
+ "solana-program",
+ "solana-readonly-account",
+ "solana-sdk",
+ "solana-signature",
+ "spl-associated-token-account",
+ "tokio",
+]
+
+[[package]]
 name = "lido-calculator-lib"
 version = "2.0.0"
 source = "git+https://github.com/moose-labs/S?branch=custom_address#063704d97f0bc62fe98fb882697f21804d925bba"
@@ -5982,10 +6000,12 @@ name = "tester"
 version = "0.1.0"
 dependencies = [
  "async-trait",
+ "base64 0.22.1",
  "flat-fee-client",
  "flat-fee-lib",
  "flat_fee_interface",
  "generic-pool-calculator-lib",
+ "lido-calculator-client",
  "lido-calculator-lib",
  "lido-keys",
  "marinade-calculator-client",

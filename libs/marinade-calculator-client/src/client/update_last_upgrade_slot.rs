@@ -6,7 +6,7 @@ use solana_sdk::{instruction::Instruction, pubkey::Pubkey};
 use super::MarinadeCalculatorClient;
 
 impl MarinadeCalculatorClient {
-    /// required signer: initial_authority
+    /// required signer: manager
     pub async fn get_update_last_upgrade_slot_ix(&self, manager: &Pubkey) -> Result<Instruction> {
         let keys = UpdateLastUpgradeSlotKeys {
             manager: *manager,

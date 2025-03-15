@@ -1,6 +1,6 @@
-use generic_pool_calculator_interface::SolToLstIxArgs;
+use generic_pool_calculator_interface::LstToSolIxArgs;
 use marinade_calculator_lib::{
-    marinade_sol_to_lst_ix, MarinadeSolValCalc, MARINADE_LST_SOL_COMMON_INTERMEDIATE_KEYS,
+    marinade_lst_to_sol_ix, MarinadeSolValCalc, MARINADE_LST_SOL_COMMON_INTERMEDIATE_KEYS,
 };
 
 use moose_utils::result::Result;
@@ -10,14 +10,14 @@ use super::MarinadeCalculatorClient;
 
 impl MarinadeCalculatorClient {
     /// no extra signer required
-    pub async fn get_sol_to_lst_ix(&self, amount: u64) -> Result<Instruction> {
+    pub async fn get_lst_to_sol_ix(&self, amount: u64) -> Result<Instruction> {
         let keys = MARINADE_LST_SOL_COMMON_INTERMEDIATE_KEYS
             .resolve::<MarinadeSolValCalc>()
             .into();
 
-        let args = SolToLstIxArgs { amount };
+        let args = LstToSolIxArgs { amount };
 
-        let ix = marinade_sol_to_lst_ix(keys, args)?;
+        let ix = marinade_lst_to_sol_ix(keys, args)?;
 
         Ok(ix)
     }

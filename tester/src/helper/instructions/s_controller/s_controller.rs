@@ -367,11 +367,6 @@ impl SController for SControllerClient {
             )
             .await?;
 
-        println!(
-            "xxx set_sol_value_calculator_instruction: {:?}",
-            ix.accounts
-        );
-
         let s = self.process_instruction(ix, &vec![admin]).await?;
 
         println!("set_sol_value_calculator: {}", s.to_string());

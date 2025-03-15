@@ -3,6 +3,8 @@ name = "s-controller-client"
 version = "0.1.0"
 edition = "2021"
 
+[features]
+testing = ["s-controller-lib/testing"]
 
 [lib]
 crate-type = ["lib"]
