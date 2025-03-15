@@ -1,15 +1,15 @@
 use moose_utils::result::Result;
 use solana_sdk::signer::Signer;
-use tester::helper::instructions::{CreateMint, SController};
+use tester::helper::instructions::s_controller::{CreateMint, SController};
 
-use crate::test_utils::{TestValidator, new_s_controller};
+use crate::test_utils::{new_s_controller_client, TestValidator};
 
 #[tokio::test()]
 #[serial_test::serial]
 async fn test_initialize() -> Result<()> {
     let _validator = TestValidator::new().await?;
 
-    let (s_controller_client, initial_authority_keypair) = new_s_controller()?;
+    let (s_controller_client, initial_authority_keypair) = new_s_controller_client()?;
     let initial_authority_pubkey = initial_authority_keypair.pubkey();
 
     let lp_token_mint = s_controller_client

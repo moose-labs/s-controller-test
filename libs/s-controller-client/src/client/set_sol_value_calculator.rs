@@ -1,6 +1,6 @@
 use moose_utils::result::Result;
 use s_controller_lib::{
-    SetSolValueCalculatorByMintFreeArgs, set_sol_value_calculator_ix_by_mint_full,
+    set_sol_value_calculator_ix_by_mint_full, SetSolValueCalculatorByMintFreeArgs,
 };
 use solana_readonly_account::sdk::KeyedAccount;
 use solana_sdk::{

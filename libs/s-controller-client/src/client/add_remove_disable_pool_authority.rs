@@ -1,7 +1,7 @@
 use moose_utils::result::Result;
 use s_controller_interface::{
-    AddDisablePoolAuthorityKeys, RemoveDisablePoolAuthorityIxArgs, RemoveDisablePoolAuthorityKeys,
-    add_disable_pool_authority_ix, remove_disable_pool_authority_ix,
+    add_disable_pool_authority_ix, remove_disable_pool_authority_ix, AddDisablePoolAuthorityKeys,
+    RemoveDisablePoolAuthorityIxArgs, RemoveDisablePoolAuthorityKeys,
 };
 use s_controller_lib::try_find_element_in_list;
 use solana_sdk::{instruction::Instruction, pubkey::Pubkey, signer::Signer, system_program};

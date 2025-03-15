@@ -1,5 +1,5 @@
 use moose_utils::result::Result;
-use s_controller_interface::{InitializeKeys, initialize_ix};
+use s_controller_interface::{initialize_ix, InitializeKeys};
 use solana_program::example_mocks::solana_sdk::system_program;
 use solana_sdk::{instruction::Instruction, pubkey::Pubkey, signer::Signer};
 

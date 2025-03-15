@@ -1,5 +1,5 @@
 use moose_utils::result::Result;
-use s_controller_interface::{SetProtocolFeeIxArgs, SetProtocolFeeKeys, set_protocol_fee_ix};
+use s_controller_interface::{set_protocol_fee_ix, SetProtocolFeeIxArgs, SetProtocolFeeKeys};
 use solana_sdk::instruction::Instruction;
 
 use super::SControllerClient;

@@ -1,15 +1,15 @@
 use moose_utils::result::Result;
 use solana_sdk::{signature::Keypair, signer::Signer};
-use tester::helper::instructions::SController;
+use tester::helper::instructions::s_controller::SController;
 
-use crate::test_utils::{TestValidator, new_s_controller};
+use crate::test_utils::{TestValidator, new_s_controller_client};
 
 #[tokio::test]
 #[serial_test::serial]
 async fn test_set_admin() -> Result<()> {
     let _validator = TestValidator::new().await?;
 
-    let (s_controller_client, admin) = new_s_controller()?;
+    let (s_controller_client, admin) = new_s_controller_client()?;
 
     let admin_pubkey = admin.pubkey();
 

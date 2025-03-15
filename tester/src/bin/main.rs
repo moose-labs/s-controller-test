@@ -1,13 +1,12 @@
-use helper::instructions::{CreateMint, SController};
 use moose_utils::result::Result;
 use s_controller_client::client::SControllerClient;
 use solana_sdk::{
     commitment_config::CommitmentConfig, signature::read_keypair_file, signer::Signer,
 };
-use utils::paths::get_deps_configs;
-
-pub mod helper;
-pub mod utils;
+use tester::{
+    helper::instructions::s_controller::{CreateMint, SController},
+    utils::paths::get_deps_configs,
+};
 
 #[tokio::main]
 async fn main() -> Result<()> {

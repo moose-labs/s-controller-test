@@ -1,5 +1,5 @@
 use moose_utils::result::Result;
-use s_controller_interface::{SetRebalanceAuthorityKeys, set_rebalance_authority_ix};
+use s_controller_interface::{set_rebalance_authority_ix, SetRebalanceAuthorityKeys};
 use solana_sdk::{instruction::Instruction, pubkey::Pubkey};
 
 use super::SControllerClient;

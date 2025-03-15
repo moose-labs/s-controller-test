@@ -2,11 +2,11 @@ use moose_utils::result::Result;
 use s_controller_client::client::SControllerClient;
 use solana_sdk::{
     commitment_config::CommitmentConfig,
-    signature::{Keypair, read_keypair_file},
+    signature::{read_keypair_file, Keypair},
 };
 use tester::utils::paths::get_deps_configs;
 
-pub fn new_s_controller() -> Result<(SControllerClient, Keypair)> {
+pub fn new_s_controller_client() -> Result<(SControllerClient, Keypair)> {
     let payer = read_keypair_file(get_deps_configs("user1.json"))?;
     let url = "http://localhost:8899";
 

@@ -1,5 +1,5 @@
 use moose_utils::result::Result;
-use s_controller_interface::{SetAdminKeys, set_admin_ix};
+use s_controller_interface::{set_admin_ix, SetAdminKeys};
 use solana_sdk::{instruction::Instruction, pubkey::Pubkey};
 
 use super::SControllerClient;

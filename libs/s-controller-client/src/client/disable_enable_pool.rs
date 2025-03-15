@@ -1,5 +1,5 @@
 use moose_utils::result::Result;
-use s_controller_interface::{DisablePoolKeys, EnablePoolKeys, disable_pool_ix, enable_pool_ix};
+use s_controller_interface::{disable_pool_ix, enable_pool_ix, DisablePoolKeys, EnablePoolKeys};
 use solana_sdk::{instruction::Instruction, pubkey::Pubkey};
 
 use super::SControllerClient;

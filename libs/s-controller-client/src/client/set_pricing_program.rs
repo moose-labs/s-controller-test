@@ -1,5 +1,5 @@
 use moose_utils::result::Result;
-use s_controller_interface::{SetPricingProgramKeys, set_pricing_program_ix};
+use s_controller_interface::{set_pricing_program_ix, SetPricingProgramKeys};
 use solana_sdk::{instruction::Instruction, pubkey::Pubkey};
 
 use super::SControllerClient;

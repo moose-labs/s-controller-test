@@ -1,7 +1,7 @@
 use moose_utils::result::Result;
 use s_controller_lib::{
-    DisableEnableLstInputByMintFreeArgs, disable_lst_input_ix_by_mint_full,
-    enable_lst_input_ix_by_mint_full,
+    disable_lst_input_ix_by_mint_full, enable_lst_input_ix_by_mint_full,
+    DisableEnableLstInputByMintFreeArgs,
 };
 use solana_sdk::{instruction::Instruction, pubkey::Pubkey};
 

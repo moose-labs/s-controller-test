@@ -1,6 +1,6 @@
 [workspace]
 resolver = "2"
-members = ["libs/moose-utils", "libs/s-controller-client", "tester"]
+members = ["libs/moose-utils", "libs/s-controller-client", "libs/flat-fee-client", "tester"]
 
 [workspace.dependencies]
 solana-client = "2.2.1"
@@ -20,6 +20,7 @@ tokio = "^1"
 
 moose-utils = { path = "./libs/moose-utils" }
 s-controller-client = { path = "./libs/s-controller-client" }
+flat-fee-client = { path = "./libs/flat-fee-client" }
 
 s-controller-lib = { git = "https://github.com/moose-labs/S", branch = "custom_address", features = [
     "testing",

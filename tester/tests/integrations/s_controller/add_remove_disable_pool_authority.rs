@@ -1,15 +1,15 @@
 use moose_utils::result::Result;
 use solana_sdk::{signature::Keypair, signer::Signer};
-use tester::helper::instructions::SController;
+use tester::helper::instructions::s_controller::SController;
 
-use crate::test_utils::{TestValidator, new_s_controller};
+use crate::test_utils::{new_s_controller_client, TestValidator};
 
 #[tokio::test]
 #[serial_test::serial]
 async fn test_add_disable_pool_authority() -> Result<()> {
     let _validator = TestValidator::new().await?;
 
-    let (s_controller_client, admin) = new_s_controller()?;
+    let (s_controller_client, admin) = new_s_controller_client()?;
 
     s_controller_client.just_initialize(&admin).await?;
 
@@ -33,7 +33,7 @@ async fn test_add_disable_pool_authority() -> Result<()> {
 async fn test_remove_disable_pool_authority_by_admin() -> Result<()> {
     let _validator = TestValidator::new().await?;
 
-    let (s_controller_client, admin) = new_s_controller()?;
+    let (s_controller_client, admin) = new_s_controller_client()?;
 
     s_controller_client.just_initialize(&admin).await?;
 
@@ -65,7 +65,7 @@ async fn test_remove_disable_pool_authority_by_admin() -> Result<()> {
 async fn test_remove_disable_pool_authority_by_authority() -> Result<()> {
     let _validator = TestValidator::new().await?;
 
-    let (s_controller_client, admin) = new_s_controller()?;
+    let (s_controller_client, admin) = new_s_controller_client()?;
 
     s_controller_client.just_initialize(&admin).await?;
 

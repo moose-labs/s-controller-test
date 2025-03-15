@@ -1,11 +1,12 @@
 [package]
 name = "tester"
 version = "0.1.0"
-edition = "2024"
+edition = "2021"
 
 [dependencies]
 moose-utils = { workspace = true }
 s-controller-client = { workspace = true }
+flat-fee-client = { workspace = true}
 
 solana-client = { workspace = true }
 solana-program = { workspace = true }

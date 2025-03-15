@@ -24,6 +24,7 @@ solana-test-validator --reset --ledger ./test-ledger \
   --clone 7orJ4kDhn1Ewp54j29tBzUWDFGhyimhYi7sxybZcphHd \
   \
   --clone mare3SCyfZkAndpBRBeonETmkCCB3TJTTrz8ZN2dnhP \
+  --clone 3E5A8HNuvJJKYa58TZddiVMnc8ZTsRVw4pmrww3xgcQ5 \
   --clone FMbUjYFtqgm4Zfpg7MguZp33RQ3tvkd22NgaCCAs3M6E \
   \
   --clone wsoGmxQLSvwWpuaidCApxN5kEowLe2HLQLJhCQnj4bE \

@@ -1163,6 +1163,23 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "94474d15a76982be62ca8a39570dccce148d98c238ebb7408b0a21b2c4bdddc4"
 
 [[package]]
+name = "flat-fee-client"
+version = "0.1.0"
+dependencies = [
+ "borsh 1.5.5",
+ "flat-fee-lib",
+ "flat_fee_interface",
+ "moose-utils",
+ "solana-client",
+ "solana-program",
+ "solana-readonly-account",
+ "solana-sdk",
+ "solana-signature",
+ "spl-associated-token-account",
+ "tokio",
+]
+
+[[package]]
 name = "flat-fee-lib"
 version = "0.1.0"
 source = "git+https://github.com/moose-labs/S?branch=custom_address#f3aa6574a83fff1e84fdeb4592cbc1840d7ce654"
@@ -2107,6 +2124,7 @@ name = "moose-utils"
 version = "0.1.0"
 dependencies = [
  "cargo_metadata",
+ "solana-sdk",
 ]
 
 [[package]]
@@ -2962,8 +2980,6 @@ name = "s-controller-client"
 version = "0.1.0"
 dependencies = [
  "borsh 1.5.5",
- "flat-fee-lib",
- "flat_fee_interface",
  "moose-utils",
  "s-controller-lib",
  "s_controller_interface",
@@ -5912,6 +5928,7 @@ name = "tester"
 version = "0.1.0"
 dependencies = [
  "async-trait",
+ "flat-fee-client",
  "flat-fee-lib",
  "flat_fee_interface",
  "generic-pool-calculator-lib",

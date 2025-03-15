@@ -80,8 +80,8 @@ fn build_test_validator_args() -> Vec<String> {
         "7orJ4kDhn1Ewp54j29tBzUWDFGhyimhYi7sxybZcphHd".into(), // spl_calculator_state
         "--clone".into(),
         "mare3SCyfZkAndpBRBeonETmkCCB3TJTTrz8ZN2dnhP".into(), // marinade_calculator
-        // "--clone".into(),
-        // "3E5A8HNuvJJKYa58TZddiVMnc8ZTsRVw4pmrww3xgcQ5".into(), // marinade_calculator_data
+        "--clone".into(),
+        "3E5A8HNuvJJKYa58TZddiVMnc8ZTsRVw4pmrww3xgcQ5".into(), // marinade_calculator_data
         "--clone".into(),
         "FMbUjYFtqgm4Zfpg7MguZp33RQ3tvkd22NgaCCAs3M6E".into(), // marinade_calculator_state
         "--clone".into(),
