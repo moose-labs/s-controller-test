@@ -5,7 +5,7 @@ members = [
     "libs/s-controller-client",
     "libs/flat-fee-client",
     "libs/marinade-calculator-client",
-    "tester"
+    "tester",
 ]
 
 [workspace.dependencies]
@@ -19,7 +19,7 @@ spl-token = ">=0.1.0"
 spl-associated-token-account = ">=0.1.0"
 
 async-trait = ">=0.1"
-borsh = ">=1.0"
+borsh = ">=0.9, <1"
 bytemuck = "^1"
 cargo_metadata = "0.19.1"
 tokio = "^1"
@@ -37,15 +37,20 @@ flat-fee-lib = { git = "https://github.com/moose-labs/S", branch = "custom_addre
     "testing",
 ] }
 flat_fee_interface = { git = "https://github.com/moose-labs/S", branch = "custom_address" }
+lido-calculator-lib = { git = "https://github.com/moose-labs/S", branch = "custom_address", features = [
+    "testing",
+] }
+spl-calculator-lib = { git = "https://github.com/moose-labs/S", branch = "custom_address", features = [
+    "testing",
+] }
+marinade-calculator-lib = { git = "https://github.com/moose-labs/S", branch = "custom_address", features = [
+    "testing",
+] }
+wsol-calculator-lib = { git = "https://github.com/moose-labs/S", branch = "custom_address" }
+generic-pool-calculator-lib = { git = "https://github.com/moose-labs/S", branch = "custom_address" }
+generic_pool_calculator_interface = { git = "https://github.com/moose-labs/S", branch = "custom_address" }
 
-
-lido-calculator-lib = { git = "https://github.com/igneous-labs/S" }
-spl-calculator-lib = { git = "https://github.com/igneous-labs/S" }
-marinade-calculator-lib = { git = "https://github.com/igneous-labs/S" }
-wsol-calculator-lib = { git = "https://github.com/igneous-labs/S" }
-generic-pool-calculator-lib = { git = "https://github.com/igneous-labs/S" }
-generic_pool_calculator_interface = { git = "https://github.com/igneous-labs/S" }
-lido-keys = { git = "https://github.com/igneous-labs/S" }
+lido-keys = { git = "https://github.com/moose-labs/S", branch = "custom_address" }
 marinade-keys = { git = "https://github.com/igneous-labs/S" }
 sanctum-spl-multi-stake-pool-keys = { git = "https://github.com/igneous-labs/S" }
 spl-stake-pool-keys = { git = "https://github.com/igneous-labs/S" }

@@ -6,6 +6,8 @@ use solana_sdk::{signature::Keypair, signer::Signer};
 pub trait MarinadeCalculator {
     async fn is_initialized(&self) -> Result<bool>;
 
+    async fn init_if_possible(&self) -> Result<bool>;
+
     async fn update_last_upgrade_slot(&self, manager: &Keypair) -> Result<()>;
 
     async fn sol_to_lst(&self, amount: u64) -> Result<()>;
@@ -17,6 +19,22 @@ impl MarinadeCalculator for MarinadeCalculatorClient {
         let ret = self.get_calculator_state().await;
 
         Ok(ret.is_ok())
+    }
+
+    async fn init_if_possible(&self) -> Result<bool> {
+        if self.is_initialized().await? {
+            // return lp_token_mint when initialize
+            println!("Marinade calculator already initialized");
+            return Ok(false);
+        }
+
+        let ix = self.get_init_ix().await?;
+
+        let s = self.process_instruction(ix, &vec![]).await?;
+
+        println!("init: {}", s.to_string());
+
+        Ok(true)
     }
 
     async fn update_last_upgrade_slot(&self, manager: &Keypair) -> Result<()> {

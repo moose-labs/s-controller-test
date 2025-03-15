@@ -11,20 +11,14 @@ solana-test-validator --reset --ledger ./test-ledger \
   --url mainnet-beta \
   --bpf-program 43vcPfe8ThRLwfJqhXoM2KwqmpqQK1wCrfvZsxrULsbQ ./deps/s_controller.so \
   --bpf-program 3LqXTGs1UtPaFPtQG8WDV6a6KyeXPrajhq7yjSvAGQiY ./deps/flat_fee.so \
+  --bpf-program 1idUSy4MGGKyKhvjSnGZ6Zc7Q4eKQcibym4BkEEw9KR ./deps/lido_calculator.so \
+  --bpf-program sp1V4h2gWorkGhVcazBc22Hfo2f5sd7jcjT4EDPrWFF ./deps/spl_calculator.so \
+  --bpf-program mare3SCyfZkAndpBRBeonETmkCCB3TJTTrz8ZN2dnhP ./deps/marinade_calculator.so \
   \
   --account BG4gEQXRWBVJmcE56Jc6UoL8nUfujvRo6r4dJP8wSLsW ./deps/configs/pre-fund.json \
   --account 54GvzEwe25N55wJ8zQZ4YTFjFAnDVP6fj4ZrvVhAyafq ./deps/configs/pre-fund.json \
   --account EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v ./deps/configs/usdc.json \
   --account 3NZ9JMVBmGAqocybic2c7LQCJScmgsAZ6vQqTDzcqmJh ./deps/configs/wbtc.json \
-  \
-  --clone-upgradeable-program 1idUSy4MGGKyKhvjSnGZ6Zc7Q4eKQcibym4BkEEw9KR \
-  --clone 7Dv8K2G3DqfkNNdPDx6qaQKmzGQu18fg6S7AjRnew6aX \
-  \
-  --clone-upgradeable-program sp1V4h2gWorkGhVcazBc22Hfo2f5sd7jcjT4EDPrWFF \
-  --clone 7orJ4kDhn1Ewp54j29tBzUWDFGhyimhYi7sxybZcphHd \
-  \
-  --clone-upgradeable-program mare3SCyfZkAndpBRBeonETmkCCB3TJTTrz8ZN2dnhP \
-  --clone FMbUjYFtqgm4Zfpg7MguZp33RQ3tvkd22NgaCCAs3M6E \
   \
   --clone-upgradeable-program wsoGmxQLSvwWpuaidCApxN5kEowLe2HLQLJhCQnj4bE \
   \
@@ -38,7 +32,6 @@ solana-test-validator --reset --ledger ./test-ledger \
   --clone 8szGkuLTAux9XMgZ2vtY39jVSowEcpBfFfD8hXSEqdGC \
   \
   --clone-upgradeable-program SPoo1Ku8WFXoNDMHPsrGSTSG1Y47rzgn41SLUNakuHy \
-  --clone EmiU8AQkB2sswTxVB6aCmsAJftoowZGGDXuytm6X65R3 \
   \
   --clone-upgradeable-program SP12tWFxD9oJsVWNavTTBZvMbA6gkAmxtVgxdqvyvhY \
   \

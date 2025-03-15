@@ -8,7 +8,7 @@ use crate::test_utils::{new_marinade_calculator_client, TestValidator};
 async fn test_calculator_state() -> Result<()> {
     let _validator = TestValidator::new().await?;
 
-    let marinade_calculator_client = new_marinade_calculator_client()?;
+    let (marinade_calculator_client, _) = new_marinade_calculator_client()?;
 
     let calculator_state = marinade_calculator_client.get_calculator_state().await?;
 

@@ -10,7 +10,12 @@ use crate::test_utils::{new_marinade_calculator_client, TestValidator};
 async fn test_sol_to_lst() -> Result<()> {
     let _validator = TestValidator::new().await?;
 
-    let marinade_calculator_client = new_marinade_calculator_client()?;
+    let (marinade_calculator_client, initial_manager_keypair) = new_marinade_calculator_client()?;
+
+    marinade_calculator_client.init_if_possible().await?;
+    marinade_calculator_client
+        .update_last_upgrade_slot(&initial_manager_keypair)
+        .await?;
 
     let account = marinade_calculator_client
         .get_account(&Pubkey::from_str_const(
