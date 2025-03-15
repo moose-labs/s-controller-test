@@ -10,6 +10,7 @@ use solana_sdk::{
     account::Account,
     commitment_config::CommitmentConfig,
     compute_budget,
+    epoch_info::EpochInfo,
     instruction::Instruction,
     message::{v0::Message, VersionedMessage},
     pubkey::Pubkey,
@@ -144,6 +145,11 @@ impl MarinadeCalculatorClient {
     pub async fn get_account(&self, pubkey: &Pubkey) -> Result<Account> {
         let account = self.rpc_client.get_account(pubkey).await?;
         Ok(account)
+    }
+
+    pub async fn get_epoch_info(&self) -> Result<EpochInfo> {
+        let epoch = self.rpc_client.get_epoch_info().await?;
+        Ok(epoch)
     }
 
     pub async fn get_account_owner(&self, pubkey: &Pubkey) -> Result<Pubkey> {

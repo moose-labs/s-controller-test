@@ -6,6 +6,7 @@ members = [
     "libs/flat-fee-client",
     "libs/marinade-calculator-client",
     "libs/lido-calculator-client",
+    "libs/spl-calculator-client",
     "tester",
 ]
 
@@ -38,7 +39,9 @@ s_controller_interface = { git = "https://github.com/moose-labs/S", branch = "cu
 flat-fee-lib = { git = "https://github.com/moose-labs/S", branch = "custom_address" }
 flat_fee_interface = { git = "https://github.com/moose-labs/S", branch = "custom_address" }
 lido-calculator-lib = { git = "https://github.com/moose-labs/S", branch = "custom_address" }
+lido_calculator_interface = { git = "https://github.com/moose-labs/S", branch = "custom_address" }
 spl-calculator-lib = { git = "https://github.com/moose-labs/S", branch = "custom_address" }
+spl_calculator_interface = { git = "https://github.com/moose-labs/S", branch = "custom_address" }
 marinade-calculator-lib = { git = "https://github.com/moose-labs/S", branch = "custom_address" }
 wsol-calculator-lib = { git = "https://github.com/moose-labs/S", branch = "custom_address" }
 generic-pool-calculator-lib = { git = "https://github.com/moose-labs/S", branch = "custom_address" }

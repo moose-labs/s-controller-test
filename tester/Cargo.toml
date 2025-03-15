@@ -9,6 +9,7 @@ s-controller-client = { workspace = true, features = ["testing"] }
 flat-fee-client = { workspace = true, features = ["testing"] }
 marinade-calculator-client = { workspace = true, features = ["testing"] }
 lido-calculator-client = { workspace = true, features = ["testing"] }
+spl-calculator-client = { workspace = true, features = ["testing"] }
 
 solana-client = { workspace = true }
 solana-program = { workspace = true }
@@ -27,7 +28,9 @@ flat-fee-lib = { workspace = true, features = ["testing"] }
 flat_fee_interface = { workspace = true }
 
 lido-calculator-lib = { workspace = true, features = ["testing"] }
+lido_calculator_interface = { workspace = true }
 spl-calculator-lib = { workspace = true, features = ["testing"] }
+spl_calculator_interface = { workspace = true }
 marinade-calculator-lib = { workspace = true, features = ["testing"] }
 wsol-calculator-lib = { workspace = true }
 generic-pool-calculator-lib = { workspace = true }

@@ -1,11 +1,11 @@
-use marinade_calculator_client::client::MarinadeCalculatorClient;
 use moose_utils::result::Result;
 use solana_sdk::{pubkey::Pubkey, signature::Keypair, signer::Signer};
+use spl_calculator_client::client::SplCalculatorClient;
 
 use crate::helper::decode_u64_from_return_data;
 
 #[async_trait::async_trait]
-pub trait MarinadeCalculator {
+pub trait SplCalculator {
     async fn is_initialized(&self) -> Result<bool>;
 
     async fn init_if_possible(&self) -> Result<bool>;
@@ -14,13 +14,23 @@ pub trait MarinadeCalculator {
 
     async fn set_manager(&self, new_manager: &Pubkey, manager: &Keypair) -> Result<()>;
 
-    async fn sol_to_lst(&self, amount: u64) -> Result<Option<u64>>;
+    async fn sol_to_lst(
+        &self,
+        lst_mint: &Pubkey,
+        spl_stake_pool: &Pubkey,
+        amount: u64,
+    ) -> Result<Option<u64>>;
 
-    async fn lst_to_sol(&self, amount: u64) -> Result<Option<u64>>;
+    async fn lst_to_sol(
+        &self,
+        lst_mint: &Pubkey,
+        spl_stake_pool: &Pubkey,
+        amount: u64,
+    ) -> Result<Option<u64>>;
 }
 
 #[async_trait::async_trait]
-impl MarinadeCalculator for MarinadeCalculatorClient {
+impl SplCalculator for SplCalculatorClient {
     async fn is_initialized(&self) -> Result<bool> {
         let ret = self.get_calculator_state().await;
 
@@ -30,7 +40,7 @@ impl MarinadeCalculator for MarinadeCalculatorClient {
     async fn init_if_possible(&self) -> Result<bool> {
         if self.is_initialized().await? {
             // return lp_token_mint when initialize
-            println!("Marinade calculator already initialized");
+            println!("Spl calculator already initialized");
             return Ok(false);
         }
 
@@ -65,8 +75,15 @@ impl MarinadeCalculator for MarinadeCalculatorClient {
         Ok(())
     }
 
-    async fn sol_to_lst(&self, amount: u64) -> Result<Option<u64>> {
-        let ix = self.get_sol_to_lst_ix(amount).await?;
+    async fn sol_to_lst(
+        &self,
+        lst_mint: &Pubkey,
+        spl_stake_pool: &Pubkey,
+        amount: u64,
+    ) -> Result<Option<u64>> {
+        let ix = self
+            .get_sol_to_lst_ix(lst_mint, spl_stake_pool, amount)
+            .await?;
 
         let result = self.simulate_instruction(ix, &vec![]).await?;
 
@@ -97,8 +114,15 @@ impl MarinadeCalculator for MarinadeCalculatorClient {
         Ok(ret_value)
     }
 
-    async fn lst_to_sol(&self, amount: u64) -> Result<Option<u64>> {
-        let ix = self.get_lst_to_sol_ix(amount).await?;
+    async fn lst_to_sol(
+        &self,
+        lst_mint: &Pubkey,
+        spl_stake_pool: &Pubkey,
+        amount: u64,
+    ) -> Result<Option<u64>> {
+        let ix = self
+            .get_lst_to_sol_ix(lst_mint, spl_stake_pool, amount)
+            .await?;
 
         let result = self.simulate_instruction(ix, &vec![]).await?;
 

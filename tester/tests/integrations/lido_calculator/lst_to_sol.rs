@@ -19,6 +19,8 @@ async fn test_lst_to_sol() -> Result<()> {
 
     let value = lido_calculator_client.lst_to_sol(amount).await?;
 
+    // HACK: Bypass epoch checking: PoolNotUpdated
+
     assert!(value.is_some());
     assert!(value.unwrap() > 0);
 

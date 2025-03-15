@@ -5501,6 +5501,24 @@ dependencies = [
 ]
 
 [[package]]
+name = "spl-calculator-client"
+version = "0.1.0"
+dependencies = [
+ "borsh 0.10.4",
+ "generic_pool_calculator_interface",
+ "moose-utils",
+ "solana-client",
+ "solana-program",
+ "solana-readonly-account",
+ "solana-sdk",
+ "solana-signature",
+ "spl-associated-token-account",
+ "spl-calculator-lib",
+ "spl-stake-pool-keys 1.0.0 (git+https://github.com/igneous-labs/S)",
+ "tokio",
+]
+
+[[package]]
 name = "spl-calculator-lib"
 version = "2.0.0"
 source = "git+https://github.com/moose-labs/S?branch=custom_address#063704d97f0bc62fe98fb882697f21804d925bba"
@@ -6008,6 +6026,7 @@ dependencies = [
  "lido-calculator-client",
  "lido-calculator-lib",
  "lido-keys",
+ "lido_calculator_interface",
  "marinade-calculator-client",
  "marinade-calculator-lib",
  "marinade-keys 1.0.0 (git+https://github.com/igneous-labs/S)",
@@ -6022,9 +6041,11 @@ dependencies = [
  "solana-program",
  "solana-sdk",
  "spl-associated-token-account",
+ "spl-calculator-client",
  "spl-calculator-lib",
  "spl-stake-pool-keys 1.0.0 (git+https://github.com/igneous-labs/S)",
  "spl-token",
+ "spl_calculator_interface",
  "tokio",
  "wsol-calculator-lib",
  "wsol-keys 1.0.0 (git+https://github.com/igneous-labs/S)",

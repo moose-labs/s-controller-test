@@ -24,5 +24,5 @@ solana-readonly-account = { workspace = true, features = ["solana-sdk"] }
 spl-associated-token-account = { workspace = true }
 
 spl-calculator-lib = { workspace = true }
-spl-keys = { workspace = true }
+spl-stake-pool-keys = { workspace = true }
 generic_pool_calculator_interface = { workspace = true }

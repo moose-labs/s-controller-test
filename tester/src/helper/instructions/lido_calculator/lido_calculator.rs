@@ -73,7 +73,7 @@ impl LidoCalculator for LidoCalculatorClient {
         if let Some(logs) = result.logs {
             println!("sol_to_lst Log:");
             logs.iter().for_each(|l| {
-                println!("{}", l);
+                println!("♦️ {}", l);
             });
         }
 
@@ -105,7 +105,7 @@ impl LidoCalculator for LidoCalculatorClient {
         if let Some(logs) = result.logs {
             println!("lst_to_sol Log:");
             logs.iter().for_each(|l| {
-                println!("{}", l);
+                println!("♦️ {}", l);
             });
         }
 

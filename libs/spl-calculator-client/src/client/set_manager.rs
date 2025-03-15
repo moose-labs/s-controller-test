@@ -1,7 +1,5 @@
 use generic_pool_calculator_interface::{SetManagerKeys, SolToLstIxArgs};
-use spl_calculator_lib::{
-    spl_set_manager_ix, spl_sol_to_lst_ix, SplSolValCalc, SPL_LST_SOL_COMMON_INTERMEDIATE_KEYS,
-};
+use spl_calculator_lib::{spl_set_manager_ix, spl_sol_to_lst_ix, SplSolValCalc};
 
 use moose_utils::result::Result;
 use solana_sdk::{instruction::Instruction, pubkey::Pubkey};
