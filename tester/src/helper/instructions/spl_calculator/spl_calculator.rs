@@ -1,3 +1,4 @@
+use base_client::client::Client;
 use moose_utils::result::Result;
 use solana_sdk::{pubkey::Pubkey, signature::Keypair, signer::Signer};
 use spl_calculator_client::client::SplCalculatorClient;

@@ -1,6 +1,7 @@
+use base_client::client::Client;
 use moose_utils::result::Result;
 use solana_sdk::signer::Signer;
-use tester::helper::instructions::s_controller::{CreateMint, SController};
+use tester::helper::instructions::s_controller::SController;
 
 use crate::test_utils::{new_s_controller_client, TestValidator};
 

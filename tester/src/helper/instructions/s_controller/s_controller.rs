@@ -1,9 +1,8 @@
+use base_client::client::Client;
 use marinade_keys::{marinade_program, marinade_program_progdata};
 use moose_utils::result::Result;
 use s_controller_client::client::SControllerClient;
-use solana_sdk::{pubkey::Pubkey, signature::Keypair, signer::Signer};
-
-use super::CreateMint;
+use solana_sdk::{instruction::AccountMeta, pubkey::Pubkey, signature::Keypair, signer::Signer};
 
 #[async_trait::async_trait]
 pub trait SController {
@@ -91,6 +90,28 @@ pub trait SController {
         sol_value_calculator_program_id: &Pubkey,
         lst_to_sol_accounts: Vec<Pubkey>,
         admin: &Keypair,
+    ) -> Result<()>;
+
+    async fn add_liquidity(
+        &self,
+        lst_mint_pubkey: &Pubkey,
+        src_lst_token_account: &Pubkey,
+        des_lp_token_account: &Pubkey,
+        lst_amount: u64,
+        min_lp_out: u64,
+        lst_calculator_accounts: &[AccountMeta],
+        pricing_program_accounts: &[AccountMeta],
+    ) -> Result<()>;
+
+    async fn remove_liquidity(
+        &self,
+        lst_mint_pubkey: &Pubkey,
+        src_lp_token_account: &Pubkey,
+        des_lst_token_account: &Pubkey,
+        lp_token_amount: u64,
+        min_lst_out: u64,
+        lst_calculator_accounts: &[AccountMeta],
+        pricing_program_accounts: &[AccountMeta],
     ) -> Result<()>;
 }
 
@@ -370,6 +391,67 @@ impl SController for SControllerClient {
         let s = self.process_instruction(ix, &vec![admin]).await?;
 
         println!("set_sol_value_calculator: {}", s.to_string());
+
+        Ok(())
+    }
+
+    async fn add_liquidity(
+        &self,
+
+        lst_mint_pubkey: &Pubkey,
+        src_lst_token_account: &Pubkey,
+        des_lp_token_account: &Pubkey,
+        lst_amount: u64,
+        min_lp_out: u64,
+        lst_calculator_accounts: &[AccountMeta],
+        pricing_program_accounts: &[AccountMeta],
+    ) -> Result<()> {
+        let ix = self
+            .get_add_liquidity_ix(
+                &self.payer().pubkey(),
+                lst_mint_pubkey,
+                src_lst_token_account,
+                des_lp_token_account,
+                lst_amount,
+                min_lp_out,
+                lst_calculator_accounts,
+                pricing_program_accounts,
+            )
+            .await?;
+
+        let s = self.process_instruction(ix, &vec![]).await?;
+
+        println!("add_liquidity: {}", s.to_string());
+
+        Ok(())
+    }
+
+    async fn remove_liquidity(
+        &self,
+        lst_mint_pubkey: &Pubkey,
+        src_lp_token_account: &Pubkey,
+        des_lst_token_account: &Pubkey,
+        lp_token_amount: u64,
+        min_lst_out: u64,
+        lst_calculator_accounts: &[AccountMeta],
+        pricing_program_accounts: &[AccountMeta],
+    ) -> Result<()> {
+        let ix = self
+            .get_remove_liquidity_ix(
+                &self.payer().pubkey(),
+                lst_mint_pubkey,
+                src_lp_token_account,
+                des_lst_token_account,
+                lp_token_amount,
+                min_lst_out,
+                lst_calculator_accounts,
+                pricing_program_accounts,
+            )
+            .await?;
+
+        let s = self.process_instruction(ix, &vec![]).await?;
+
+        println!("remove_liquidity: {}", s.to_string());
 
         Ok(())
     }

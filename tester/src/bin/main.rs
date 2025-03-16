@@ -1,18 +1,16 @@
+use base_client::client::Client;
 use moose_utils::result::Result;
 use s_controller_client::client::SControllerClient;
 use solana_sdk::{
     commitment_config::CommitmentConfig, signature::read_keypair_file, signer::Signer,
 };
-use tester::{
-    helper::instructions::s_controller::{CreateMint, SController},
-    utils::paths::get_deps_configs,
-};
+use tester::{helper::instructions::s_controller::SController, utils::paths::get_deps_configs};
 
 #[tokio::main]
 async fn main() -> Result<()> {
     println!("Hello, world!");
 
-    let payer = read_keypair_file(get_deps_configs("user1.json")).unwrap();
+    let payer = read_keypair_file(get_deps_configs("local-auth.json")).unwrap();
     let admin = read_keypair_file(get_deps_configs("admin.json")).unwrap();
     let url = "http://localhost:8899";
 

@@ -344,6 +344,20 @@ dependencies = [
 ]
 
 [[package]]
+name = "base-client"
+version = "0.1.0"
+dependencies = [
+ "async-trait",
+ "borsh 0.10.4",
+ "moose-utils",
+ "solana-client",
+ "solana-sdk",
+ "solana-signature",
+ "spl-associated-token-account",
+ "spl-token",
+]
+
+[[package]]
 name = "base64"
 version = "0.12.3"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -1166,6 +1180,7 @@ checksum = "94474d15a76982be62ca8a39570dccce148d98c238ebb7408b0a21b2c4bdddc4"
 name = "flat-fee-client"
 version = "0.1.0"
 dependencies = [
+ "base-client",
  "borsh 0.10.4",
  "flat-fee-lib",
  "flat_fee_interface",
@@ -1949,6 +1964,7 @@ dependencies = [
 name = "lido-calculator-client"
 version = "0.1.0"
 dependencies = [
+ "base-client",
  "borsh 0.10.4",
  "generic_pool_calculator_interface",
  "lido-calculator-lib",
@@ -2027,6 +2043,7 @@ checksum = "30bde2b3dc3671ae49d8e2e9f044c7c005836e7a023ee57cffa25ab82764bb9e"
 name = "marinade-calculator-client"
 version = "0.1.0"
 dependencies = [
+ "base-client",
  "borsh 0.10.4",
  "generic_pool_calculator_interface",
  "marinade-calculator-lib",
@@ -3024,6 +3041,7 @@ checksum = "28d3b2b1366ec20994f1fd18c3c594f05c5dd4bc44d8bb0c1c632c8d6829481f"
 name = "s-controller-client"
 version = "0.1.0"
 dependencies = [
+ "base-client",
  "borsh 0.10.4",
  "moose-utils",
  "s-controller-lib",
@@ -5504,6 +5522,7 @@ dependencies = [
 name = "spl-calculator-client"
 version = "0.1.0"
 dependencies = [
+ "base-client",
  "borsh 0.10.4",
  "generic_pool_calculator_interface",
  "moose-utils",
@@ -6018,6 +6037,7 @@ name = "tester"
 version = "0.1.0"
 dependencies = [
  "async-trait",
+ "base-client",
  "base64 0.22.1",
  "flat-fee-client",
  "flat-fee-lib",

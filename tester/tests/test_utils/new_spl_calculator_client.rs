@@ -1,3 +1,4 @@
+use base_client::client::Client;
 use moose_utils::result::Result;
 use solana_sdk::{
     commitment_config::CommitmentConfig,
@@ -7,7 +8,7 @@ use spl_calculator_client::client::SplCalculatorClient;
 use tester::utils::paths::get_deps_configs;
 
 pub fn new_spl_calculator_client() -> Result<(SplCalculatorClient, Keypair)> {
-    let payer = read_keypair_file(get_deps_configs("user2.json"))?;
+    let payer = read_keypair_file(get_deps_configs("local-auth.json"))?;
     let url = "http://localhost:8899";
 
     let initial_manager_keypair =

@@ -1,3 +1,4 @@
+use base_client::client::Client;
 use moose_utils::result::Result;
 use s_controller_interface::{
     add_disable_pool_authority_ix, remove_disable_pool_authority_ix, AddDisablePoolAuthorityKeys,
@@ -17,7 +18,7 @@ impl SControllerClient {
         let pool_state = self.get_pool_state().await?;
 
         let keys = AddDisablePoolAuthorityKeys {
-            payer: self.payer.pubkey(), // signer
+            payer: self.payer().pubkey(), // signer
             admin: pool_state.admin,    // signer
             pool_state: self.get_pool_state_pubkey(),
             new_authority: *new_authority,
@@ -41,7 +42,7 @@ impl SControllerClient {
             try_find_element_in_list(*authority, disable_authority_list.as_slice()).unwrap();
 
         let keys = RemoveDisablePoolAuthorityKeys {
-            refund_rent_to: self.payer.pubkey(),
+            refund_rent_to: self.payer().pubkey(),
             signer: pool_state.admin,
             authority: *authority,
             pool_state: self.get_pool_state_pubkey(),
@@ -67,7 +68,7 @@ impl SControllerClient {
             try_find_element_in_list(*authority, disable_authority_list.as_slice()).unwrap();
 
         let keys = RemoveDisablePoolAuthorityKeys {
-            refund_rent_to: self.payer.pubkey(),
+            refund_rent_to: self.payer().pubkey(),
             signer: *authority,
             authority: *authority,
             pool_state: self.get_pool_state_pubkey(),

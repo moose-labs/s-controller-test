@@ -1,3 +1,4 @@
+use base_client::client::Client;
 use moose_utils::result::Result;
 use s_controller_interface::{initialize_ix, InitializeKeys};
 use solana_program::example_mocks::solana_sdk::system_program;
@@ -12,7 +13,7 @@ impl SControllerClient {
         let lp_token_program = self.get_account_owner(lp_token_mint).await?;
 
         let keys = InitializeKeys {
-            payer: self.payer.pubkey(),                     // signer
+            payer: self.payer().pubkey(),                   // signer
             authority: self.get_initial_authority_pubkey(), // signer
             pool_state: self.get_pool_state_pubkey(),
             lp_token_mint: lp_token_mint.clone(),

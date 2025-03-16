@@ -7,6 +7,7 @@ members = [
     "libs/marinade-calculator-client",
     "libs/lido-calculator-client",
     "libs/spl-calculator-client",
+    "libs/base-client",
     "tester",
 ]
 
@@ -28,6 +29,7 @@ cargo_metadata = "0.19.1"
 tokio = "^1"
 
 moose-utils = { path = "./libs/moose-utils" }
+base-client = { path = "./libs/base-client" }
 s-controller-client = { path = "./libs/s-controller-client" }
 flat-fee-client = { path = "./libs/flat-fee-client" }
 marinade-calculator-client = { path = "./libs/marinade-calculator-client" }

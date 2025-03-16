@@ -12,6 +12,7 @@ name = "flat_fee_client"
 
 [dependencies]
 moose-utils = { workspace = true }
+base-client = { workspace = true }
 
 tokio = { workspace = true }
 borsh = { workspace = true }
