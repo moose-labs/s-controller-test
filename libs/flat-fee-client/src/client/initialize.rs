@@ -1,3 +1,4 @@
+use base_client::client::Client;
 use flat_fee_interface::{initialize_ix, InitializeKeys};
 use moose_utils::result::Result;
 use solana_program::example_mocks::solana_sdk::system_program;
@@ -9,7 +10,7 @@ impl FlatFeeClient {
     /// required signer: initial_authority
     pub async fn get_initialize_ix(&self) -> Result<Instruction> {
         let keys = InitializeKeys {
-            payer: self.payer.pubkey(), // signer
+            payer: self.payer().pubkey(), // signer
             state: flat_fee_lib::program::STATE_ID,
             system_program: system_program::ID,
         };

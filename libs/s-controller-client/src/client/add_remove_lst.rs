@@ -1,3 +1,4 @@
+use base_client::client::Client;
 use moose_utils::result::Result;
 use s_controller_interface::{
     add_lst_ix, remove_lst_ix, AddLstKeys, RemoveLstIxArgs, RemoveLstKeys,
@@ -34,7 +35,7 @@ impl SControllerClient {
 
         let keys = AddLstKeys {
             admin: pool_state.admin,    // signer
-            payer: self.payer.pubkey(), // signer
+            payer: self.payer().pubkey(), // signer
             lst_mint: *lst_mint_pubkey,
             pool_reserves: pool_reserves_pubkey,
             protocol_fee_accumulator: protocol_fee_accumulator_pubkey,
@@ -83,7 +84,7 @@ impl SControllerClient {
                 pool_state: self.get_pool_state_pubkey(),
                 lst_state_list: self.get_lst_state_list_pubkey(),
                 lst_token_program,
-                refund_rent_to: self.payer.pubkey(),
+                refund_rent_to: self.payer().pubkey(),
             },
             RemoveLstIxArgs {
                 lst_index: lst_index as u32,

@@ -1,3 +1,4 @@
+use base_client::client::Client;
 use moose_utils::result::Result;
 use tester::helper::instructions::spl_calculator::SplCalculator;
 

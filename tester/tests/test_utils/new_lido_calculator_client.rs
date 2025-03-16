@@ -1,3 +1,4 @@
+use base_client::client::Client;
 use lido_calculator_client::client::LidoCalculatorClient;
 use moose_utils::result::Result;
 use solana_sdk::{
@@ -7,7 +8,7 @@ use solana_sdk::{
 use tester::utils::paths::get_deps_configs;
 
 pub fn new_lido_calculator_client() -> Result<(LidoCalculatorClient, Keypair)> {
-    let payer = read_keypair_file(get_deps_configs("user2.json"))?;
+    let payer = read_keypair_file(get_deps_configs("local-auth.json"))?;
     let url = "http://localhost:8899";
 
     let initial_manager_keypair =

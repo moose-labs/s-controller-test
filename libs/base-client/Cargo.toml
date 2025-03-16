@@ -1,0 +1,21 @@
+[package]
+name = "base-client"
+version = "0.1.0"
+edition = "2021"
+
+[lib]
+crate-type = ["lib"]
+name = "base_client"
+
+[dependencies]
+moose-utils = { workspace = true }
+
+borsh = { workspace = true }
+async-trait = { workspace = true }
+
+solana-client = { workspace = true }
+solana-sdk = { workspace = true }
+solana-signature = { workspace = true }
+
+spl-token = { workspace = true }
+spl-associated-token-account = { workspace = true }

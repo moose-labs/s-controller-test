@@ -5,6 +5,7 @@ edition = "2021"
 
 [dependencies]
 moose-utils = { workspace = true }
+base-client = { workspace = true }
 s-controller-client = { workspace = true, features = ["testing"] }
 flat-fee-client = { workspace = true, features = ["testing"] }
 marinade-calculator-client = { workspace = true, features = ["testing"] }

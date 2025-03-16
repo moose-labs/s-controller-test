@@ -1,3 +1,4 @@
+use base_client::client::Client;
 use moose_utils::result::Result;
 use s_controller_lib::{
     add_liquidity_ix_by_mint_full, remove_liquidity_ix_by_mint_full, AddLiquidityByMintFreeArgs,

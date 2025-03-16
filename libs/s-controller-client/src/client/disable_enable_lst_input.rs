@@ -1,3 +1,4 @@
+use base_client::client::Client;
 use moose_utils::result::Result;
 use s_controller_lib::{
     disable_lst_input_ix_by_mint_full, enable_lst_input_ix_by_mint_full,

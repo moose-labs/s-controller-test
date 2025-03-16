@@ -1,3 +1,4 @@
+use base_client::client::Client;
 use lido_calculator_client::client::LidoCalculatorClient;
 use moose_utils::result::Result;
 use solana_sdk::{pubkey::Pubkey, signature::Keypair, signer::Signer};

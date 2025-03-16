@@ -1,3 +1,4 @@
+use base_client::client::Client;
 use lido_calculator_interface::Lido;
 use moose_utils::result::Result;
 use tester::helper::instructions::lido_calculator::LidoCalculator;

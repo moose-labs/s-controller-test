@@ -1,4 +1,5 @@
 mod add_remove_disable_pool_authority;
+mod add_remove_liquidity;
 mod add_remove_lst;
 mod disable_enable_lst_input;
 mod disable_enable_pool;

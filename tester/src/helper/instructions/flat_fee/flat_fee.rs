@@ -1,3 +1,4 @@
+use base_client::client::Client;
 use flat_fee_client::client::FlatFeeClient;
 use moose_utils::result::Result;
 

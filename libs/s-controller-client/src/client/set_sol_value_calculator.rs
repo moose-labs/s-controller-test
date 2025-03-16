@@ -1,3 +1,4 @@
+use base_client::client::Client;
 use moose_utils::result::Result;
 use s_controller_lib::{
     set_sol_value_calculator_ix_by_mint_full, SetSolValueCalculatorByMintFreeArgs,

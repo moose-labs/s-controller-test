@@ -51,12 +51,18 @@ fn build_test_validator_args() -> Vec<String> {
         ledger_path,
         "--url".into(),
         "mainnet-beta".into(),
+        //
+        // s-controller and flat-fee
+        //
         "--bpf-program".into(),
         "43vcPfe8ThRLwfJqhXoM2KwqmpqQK1wCrfvZsxrULsbQ".into(), // s_controller program
         s_controller_so,
         "--bpf-program".into(),
         "3LqXTGs1UtPaFPtQG8WDV6a6KyeXPrajhq7yjSvAGQiY".into(), // flat_fee program
         flat_fee_so,
+        //
+        // calculators (hacked)
+        //
         "--bpf-program".into(),
         "1idUSy4MGGKyKhvjSnGZ6Zc7Q4eKQcibym4BkEEw9KR".into(), // lido_calculator
         lido_calculator_so.into(),
@@ -66,7 +72,9 @@ fn build_test_validator_args() -> Vec<String> {
         "--bpf-program".into(),
         "mare3SCyfZkAndpBRBeonETmkCCB3TJTTrz8ZN2dnhP".into(), // marinade_calculator
         marinade_calculator_so.into(),
-        // fund accounts
+        //
+        // pre-fund SOL
+        //
         "--account".into(),
         "CPk5V2ZqhLwYSguYT2dmrELuvNVskZhqMXJPSezusjQL".into(), // pre-fund account (local-auth)
         pre_fund_json.clone(),
