@@ -15,15 +15,28 @@ solana-test-validator --reset --ledger ./test-ledger \
   --bpf-program sp1V4h2gWorkGhVcazBc22Hfo2f5sd7jcjT4EDPrWFF ./deps/spl_calculator.so \
   --bpf-program mare3SCyfZkAndpBRBeonETmkCCB3TJTTrz8ZN2dnhP ./deps/marinade_calculator.so \
   \
+  --account CPk5V2ZqhLwYSguYT2dmrELuvNVskZhqMXJPSezusjQL ./deps/configs/pre-fund.json \
   --account BG4gEQXRWBVJmcE56Jc6UoL8nUfujvRo6r4dJP8wSLsW ./deps/configs/pre-fund.json \
   --account 54GvzEwe25N55wJ8zQZ4YTFjFAnDVP6fj4ZrvVhAyafq ./deps/configs/pre-fund.json \
-  --account EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v ./deps/configs/usdc.json \
-  --account 3NZ9JMVBmGAqocybic2c7LQCJScmgsAZ6vQqTDzcqmJh ./deps/configs/wbtc.json \
-  \
-  --clone-upgradeable-program wsoGmxQLSvwWpuaidCApxN5kEowLe2HLQLJhCQnj4bE \
   \
   --clone 7dHbWXmci3dT8UFYWYZweBLXgycu7Y3iL6trKn1Y7ARj \
+  --clone jupSoLaHXQiZZTSfEWMTRRgpnyFm8f6sZdosWBjx93v \
+  --clone BPSoLzmLQn47EP5aa7jmFngRL8KC3TWAeAwXwZD8ip3P \
+  --clone Dso1bDeDjCQxTrWHqUUi63oBvV7Mdm6WaobLbQ7gnPQ \
   --clone mSoLzYCxHdYgdzU16g5QSh3i5K3z3KZK7ytfqcJm7So \
+  --clone 5oVNBeEEQvYi1cX3ir8Dx5n1P7pdxydbGF2X4TxVusJm \
+  --clone J1toso1uCk3RLmjorhTtrVwY9HJ7X8V9yYac6Y7kGCPn \
+  --clone he1iusmfkpAdwvxLNGV8Y1iSbj4rUy6yMhEA3fotn9A \
+  \
+  --account CdYEjJJ3TksiAcvUxD6Bzo1V6RahhCyaRpaTMctdGFFK ./deps/configs/token-account-jupsol.json \
+  --account 4qnTdFvjH5aTB5DL3MS6JTHTNNoa3b6UieugLcVjgApC ./deps/configs/token-account-bpsol.json \
+  --account 5KLgeXCc87m9mV3HV7a4dzNEbBEQv85JzQ5yEqJP3dW8 ./deps/configs/token-account-dsol.json \
+  --account 2xcPzF3CXtdLiDWjW1ieyqJvrQo34GkotCzakN9nf3E4 ./deps/configs/token-account-msol.json \
+  --account EjQcpXwQtrJqfAJdR34HZTWtHNTFMWshx7XWf5BZdhs8 ./deps/configs/token-account-INF.json \
+  --account 7eJ7hWfgHCF5jTAGRYngHf87CLxEb4vFJ33Hi3JhbLgV ./deps/configs/token-account-jitosol.json \
+  --account 6MjHYCypPB7BFooYjth7ZoNM9rVXwTNCjSSSvkvtA6GZ ./deps/configs/token-account-hsol.json \
+  \
+  --clone-upgradeable-program wsoGmxQLSvwWpuaidCApxN5kEowLe2HLQLJhCQnj4bE \
   \
   --clone-upgradeable-program CrX7kMhLC3cSsXJdT7JDgqrRVWGnUpX3gfEfxxU2NVLi \
   --clone 49Yi1TKkNyYjPAFdR9LBvoHcUjuPX4Df5T5yv39w2XTn \
@@ -76,3 +89,13 @@ solana-test-validator --reset --ledger ./test-ledger \
 # ---
 # jitosol:                   J1toso1uCk3RLmjorhTtrVwY9HJ7X8V9yYac6Y7kGCPn
 # jito_stake_pool:           Jito4APyf642JPZPx3hGc6WWJ8zPKtRbRs4P815Awbb
+
+
+
+# jupsol                     jupSoLaHXQiZZTSfEWMTRRgpnyFm8f6sZdosWBjx93v
+# bpsol                      BPSoLzmLQn47EP5aa7jmFngRL8KC3TWAeAwXwZD8ip3P
+# dsol                       Dso1bDeDjCQxTrWHqUUi63oBvV7Mdm6WaobLbQ7gnPQ
+# msol                       mSoLzYCxHdYgdzU16g5QSh3i5K3z3KZK7ytfqcJm7So
+# INF                        5oVNBeEEQvYi1cX3ir8Dx5n1P7pdxydbGF2X4TxVusJm
+# jitosol                    J1toso1uCk3RLmjorhTtrVwY9HJ7X8V9yYac6Y7kGCPn
+# hsol                       he1iusmfkpAdwvxLNGV8Y1iSbj4rUy6yMhEA3fotn9A
