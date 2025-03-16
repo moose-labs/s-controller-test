@@ -41,9 +41,12 @@ create_and_dump_token() {
     exit 1
   fi
 }
+``
+# # Create USDC token with 6 decimals
+# create_and_dump_token 6 "./deps/configs/usdc.json"
 
-# Create USDC token with 6 decimals
-create_and_dump_token 6 "./deps/configs/usdc.json"
+# # Create BTC token (default decimals)
+# create_and_dump_token 8 "./deps/configs/wbtc.json"
 
 # Create BTC token (default decimals)
-create_and_dump_token 8 "./deps/configs/wbtc.json"
+create_and_dump_token 9 "./deps/configs/mint9.json"
