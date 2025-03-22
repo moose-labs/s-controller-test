@@ -1,8 +1,9 @@
 use moose_utils::result::Result;
 use solana_sdk::{signature::Keypair, signer::Signer};
-use tester::helper::instructions::marinade_calculator::MarinadeCalculator;
-
-use crate::test_utils::{new_marinade_calculator_client, TestValidator};
+use tester::{
+    helper::instructions::marinade_calculator::MarinadeCalculator,
+    test_utils::{new_marinade_calculator_client, TestValidator},
+};
 
 #[tokio::test()]
 #[serial_test::serial]

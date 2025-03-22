@@ -1,8 +1,9 @@
 use base_client::client::Client;
 use moose_utils::result::Result;
-use tester::helper::instructions::spl_calculator::SplCalculator;
-
-use crate::test_utils::{new_spl_calculator_client, TestValidator};
+use tester::{
+    helper::instructions::spl_calculator::SplCalculator,
+    test_utils::{new_spl_calculator_client, TestValidator},
+};
 
 #[tokio::test()]
 #[serial_test::serial]

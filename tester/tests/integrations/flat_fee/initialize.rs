@@ -1,8 +1,9 @@
 use moose_utils::result::Result;
 use solana_sdk::signer::Signer;
-use tester::helper::instructions::flat_fee::FlatFee;
-
-use crate::test_utils::{new_flat_fee_client, TestValidator};
+use tester::{
+    helper::instructions::flat_fee::FlatFee,
+    test_utils::{new_flat_fee_client, TestValidator},
+};
 
 #[tokio::test()]
 #[serial_test::serial]

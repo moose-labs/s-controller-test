@@ -3,13 +3,14 @@ use marinade_calculator_lib::marinade_sol_val_calc_account_metas;
 use marinade_keys::msol;
 use moose_utils::result::Result;
 use solana_sdk::{instruction::AccountMeta, signer::Signer};
-use tester::helper::instructions::{
-    flat_fee::FlatFee, marinade_calculator::MarinadeCalculator, s_controller::SController,
-};
-
-use crate::test_utils::{
-    new_flat_fee_client, new_marinade_calculator_client, new_s_controller_client_with_keypair,
-    TestValidator,
+use tester::{
+    helper::instructions::{
+        flat_fee::FlatFee, marinade_calculator::MarinadeCalculator, s_controller::SController,
+    },
+    test_utils::{
+        new_flat_fee_client, new_marinade_calculator_client, new_s_controller_client_with_keypair,
+        TestValidator,
+    },
 };
 
 #[tokio::test]

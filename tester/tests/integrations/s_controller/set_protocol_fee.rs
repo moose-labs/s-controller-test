@@ -1,7 +1,8 @@
 use moose_utils::result::Result;
-use tester::helper::instructions::s_controller::SController;
-
-use crate::test_utils::{new_s_controller_client, TestValidator};
+use tester::{
+    helper::instructions::s_controller::SController,
+    test_utils::{new_s_controller_client, TestValidator},
+};
 
 #[tokio::test]
 #[serial_test::serial]

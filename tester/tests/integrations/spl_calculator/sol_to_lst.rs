@@ -1,8 +1,9 @@
 use moose_utils::result::Result;
 use solana_sdk::pubkey::Pubkey;
-use tester::helper::instructions::spl_calculator::SplCalculator;
-
-use crate::test_utils::{new_spl_calculator_client, TestValidator};
+use tester::{
+    helper::instructions::spl_calculator::SplCalculator,
+    test_utils::{new_spl_calculator_client, TestValidator},
+};
 
 #[tokio::test()]
 #[serial_test::serial]

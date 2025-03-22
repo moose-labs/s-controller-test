@@ -1,10 +1,9 @@
 use marinade_keys::{marinade_program, marinade_program_progdata, marinade_state, msol};
 use moose_utils::result::Result;
-use tester::helper::instructions::{
-    marinade_calculator::MarinadeCalculator, s_controller::SController,
+use tester::{
+    helper::instructions::{marinade_calculator::MarinadeCalculator, s_controller::SController},
+    test_utils::{new_marinade_calculator_client, new_s_controller_client, TestValidator},
 };
-
-use crate::test_utils::{new_marinade_calculator_client, new_s_controller_client, TestValidator};
 
 #[tokio::test]
 #[serial_test::serial]

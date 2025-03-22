@@ -1,3 +1,4 @@
+use crate::utils::paths::get_deps_configs;
 use base_client::client::Client;
 use moose_utils::result::Result;
 use s_controller_client::client::SControllerClient;
@@ -5,7 +6,6 @@ use solana_sdk::{
     commitment_config::CommitmentConfig,
     signature::{read_keypair_file, Keypair},
 };
-use tester::utils::paths::get_deps_configs;
 
 pub fn new_s_controller_client_with_keypair(
     key_file: &str,

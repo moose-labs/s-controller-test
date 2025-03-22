@@ -83,6 +83,9 @@ fn build_test_validator_args() -> Vec<String> {
         pre_fund_json.clone(),
         "--account".into(),
         "54GvzEwe25N55wJ8zQZ4YTFjFAnDVP6fj4ZrvVhAyafq".into(), // pre-fund account (user1)
+        pre_fund_json.clone(),
+        "--account".into(),
+        "Ced3SU6nfyXyxB3pboxyGGvAhNSLFXy1iBsSwhbssBXY".into(), // pre-fund account (admin)
         pre_fund_json,
         //
         // Clones mints from live network

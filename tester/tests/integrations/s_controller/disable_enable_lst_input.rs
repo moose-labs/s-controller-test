@@ -1,8 +1,9 @@
 use marinade_keys::msol;
 use moose_utils::result::Result;
-use tester::helper::instructions::s_controller::SController;
-
-use crate::test_utils::{TestValidator, new_s_controller_client};
+use tester::{
+    helper::instructions::s_controller::SController,
+    test_utils::{new_s_controller_client, TestValidator},
+};
 
 #[tokio::test]
 #[serial_test::serial]
