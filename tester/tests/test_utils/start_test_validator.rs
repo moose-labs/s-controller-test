@@ -55,10 +55,10 @@ fn build_test_validator_args() -> Vec<String> {
         // s-controller and flat-fee
         //
         "--bpf-program".into(),
-        "43vcPfe8ThRLwfJqhXoM2KwqmpqQK1wCrfvZsxrULsbQ".into(), // s_controller program
+        "maXsoLmywA737Cr4onbYcCmLg32hXtGK3VLjEgg48Rv".into(), // s_controller program
         s_controller_so,
         "--bpf-program".into(),
-        "3LqXTGs1UtPaFPtQG8WDV6a6KyeXPrajhq7yjSvAGQiY".into(), // flat_fee program
+        "fee6wD3n9nMMbfV8YgqUjVHoxahTVSqF5fW6Z1hb458".into(), // flat_fee program
         flat_fee_so,
         //
         // calculators (hacked)

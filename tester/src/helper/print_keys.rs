@@ -1,5 +1,15 @@
 #[allow(dead_code)]
 pub fn print_keys() {
+    println!("s_controller:           {}", s_controller_lib::program::ID);
+    println!(
+        "s_controller_initial_authority:           {}",
+        s_controller_lib::initial_authority::ID
+    );
+    println!("flat_fee:           {}", flat_fee_lib::program::ID);
+    println!(
+        "flat_fee_initial_manager:           {}",
+        flat_fee_lib::initial_constants::initial_manager::ID
+    );
     println!(
         "lido_calculator:           {}",
         lido_calculator_lib::program::ID
