@@ -3,7 +3,8 @@ use std::time::Duration;
 use borsh::BorshDeserialize;
 use moose_utils::{result::Result, sorted_signers::SortedSigners};
 use solana_client::{
-    nonblocking::rpc_client::RpcClient, rpc_response::RpcSimulateTransactionResult,
+    nonblocking::rpc_client::RpcClient, rpc_config::RpcSimulateTransactionConfig,
+    rpc_response::RpcSimulateTransactionResult,
 };
 use solana_sdk::{
     account::Account,
@@ -136,7 +137,17 @@ pub trait Client {
             &SortedSigners(&signers_with_payer), // use the combined list of signers
         )?;
 
-        let response = self.rpc_client().simulate_transaction(&tx).await?;
+        let config = RpcSimulateTransactionConfig {
+            commitment: Some(self.rpc_client().commitment()),
+            inner_instructions: true,
+            accounts: None,
+            ..RpcSimulateTransactionConfig::default()
+        };
+        let response = self
+            .rpc_client()
+            .simulate_transaction_with_config(&tx, config)
+            .await?;
+
         Ok(response.value)
     }
 

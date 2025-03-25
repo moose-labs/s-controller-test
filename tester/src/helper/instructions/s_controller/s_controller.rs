@@ -2,7 +2,10 @@ use base_client::client::Client;
 use marinade_keys::{marinade_program, marinade_program_progdata};
 use moose_utils::result::Result;
 use s_controller_client::client::SControllerClient;
+use serde_json::Value;
 use solana_sdk::{instruction::AccountMeta, pubkey::Pubkey, signature::Keypair, signer::Signer};
+
+use crate::helper::decode_u64_from_return_data;
 
 #[async_trait::async_trait]
 pub trait SController {
@@ -103,6 +106,17 @@ pub trait SController {
         pricing_program_accounts: &[AccountMeta],
     ) -> Result<()>;
 
+    async fn add_liquidity_simulate(
+        &self,
+        lst_mint_pubkey: &Pubkey,
+        src_lst_token_account: &Pubkey,
+        des_lp_token_account: &Pubkey,
+        lst_amount: u64,
+        min_lp_out: u64,
+        lst_calculator_accounts: &[AccountMeta],
+        pricing_program_accounts: &[AccountMeta],
+    ) -> Result<Option<u64>>;
+
     async fn remove_liquidity(
         &self,
         lst_mint_pubkey: &Pubkey,
@@ -113,6 +127,17 @@ pub trait SController {
         lst_calculator_accounts: &[AccountMeta],
         pricing_program_accounts: &[AccountMeta],
     ) -> Result<()>;
+
+    async fn remove_liquidity_simulate(
+        &self,
+        lst_mint_pubkey: &Pubkey,
+        src_lp_token_account: &Pubkey,
+        des_lst_token_account: &Pubkey,
+        lp_token_amount: u64,
+        min_lst_out: u64,
+        lst_calculator_accounts: &[AccountMeta],
+        pricing_program_accounts: &[AccountMeta],
+    ) -> Result<Option<u64>>;
 }
 
 #[async_trait::async_trait]
@@ -426,6 +451,96 @@ impl SController for SControllerClient {
         Ok(())
     }
 
+    async fn add_liquidity_simulate(
+        &self,
+        lst_mint_pubkey: &Pubkey,
+        src_lst_token_account: &Pubkey,
+        des_lp_token_account: &Pubkey,
+        lst_amount: u64,
+        min_lp_out: u64,
+        lst_calculator_accounts: &[AccountMeta],
+        pricing_program_accounts: &[AccountMeta],
+    ) -> Result<Option<u64>> {
+        let ix = self
+            .get_add_liquidity_ix(
+                &self.payer().pubkey(),
+                lst_mint_pubkey,
+                src_lst_token_account,
+                des_lp_token_account,
+                lst_amount,
+                min_lp_out,
+                lst_calculator_accounts,
+                pricing_program_accounts,
+            )
+            .await?;
+
+        let result = self.simulate_instruction(ix, &vec![]).await?;
+
+        if let Some(logs) = result.logs {
+            println!("add_liquidity Log:");
+            logs.iter().for_each(|l| {
+                println!("♦️ {}", l);
+            });
+        }
+
+        let ret_value = if let Some(inner_instructions) = result.inner_instructions {
+            let pool_state = self.get_pool_state().await?;
+            let lp_mint_str = pool_state.lp_token_mint.to_string();
+            let mut mint_amount: Option<u64> = None;
+            for txn in inner_instructions {
+                for ix in txn.instructions {
+                    // Convert the instruction into a serde_json::Value.
+                    let ix_value: Value = serde_json::to_value(&ix).unwrap();
+                    // Check if this is a mintTo instruction from the spl-token program.
+                    if let Some(parsed) = ix_value.get("parsed") {
+                        if parsed.get("type").and_then(|t| t.as_str()) == Some("mintTo") {
+                            if let Some(info) = parsed.get("info") {
+                                // Check if the mint address in the instruction matches lst_mint_pubkey.
+                                if info.get("mint").and_then(|m| m.as_str()) == Some(&lp_mint_str) {
+                                    if let Some(amount_str) =
+                                        info.get("amount").and_then(|a| a.as_str())
+                                    {
+                                        match amount_str.parse::<u64>() {
+                                            Ok(amount) => {
+                                                println!(
+                                                    "Found mintTo for mint {}: minted amount is {}",
+                                                    lp_mint_str, amount
+                                                );
+
+                                                mint_amount = Some(amount);
+                                            }
+                                            Err(e) => {
+                                                eprintln!("Error parsing minted amount: {}", e);
+                                            }
+                                        };
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            mint_amount
+        } else {
+            None
+        };
+
+        if let Some(accounts) = result.accounts {
+            println!("add_liquidity account:");
+            accounts.iter().for_each(|a| {
+                if let Some(acc) = a {
+                    println!("♦️ {:?}", acc);
+                }
+            });
+        }
+
+        if let Some(error) = result.err {
+            println!("add_liquidity error: {:?}", error);
+        }
+
+        Ok(ret_value)
+    }
+
     async fn remove_liquidity(
         &self,
         lst_mint_pubkey: &Pubkey,
@@ -454,5 +569,86 @@ impl SController for SControllerClient {
         println!("remove_liquidity: {}", s.to_string());
 
         Ok(())
+    }
+
+    async fn remove_liquidity_simulate(
+        &self,
+        lst_mint_pubkey: &Pubkey,
+        src_lp_token_account: &Pubkey,
+        des_lst_token_account: &Pubkey,
+        lp_token_amount: u64,
+        min_lst_out: u64,
+        lst_calculator_accounts: &[AccountMeta],
+        pricing_program_accounts: &[AccountMeta],
+    ) -> Result<Option<u64>> {
+        let ix = self
+            .get_remove_liquidity_ix(
+                &self.payer().pubkey(),
+                lst_mint_pubkey,
+                src_lp_token_account,
+                des_lst_token_account,
+                lp_token_amount,
+                min_lst_out,
+                lst_calculator_accounts,
+                pricing_program_accounts,
+            )
+            .await?;
+
+        let result = self.simulate_instruction(ix, &vec![]).await?;
+
+        if let Some(logs) = result.logs {
+            println!("remove_liquidity Log:");
+            logs.iter().for_each(|l| {
+                println!("♦️ {}", l);
+            });
+        }
+
+        let ret_value = if let Some(inner_instructions) = result.inner_instructions {
+            let pool_state = self.get_pool_state().await?;
+            let lp_mint_str = pool_state.lp_token_mint.to_string();
+            let mut burn_amount: Option<u64> = None;
+            for txn in inner_instructions {
+                for ix in txn.instructions {
+                    // Convert the instruction into a serde_json::Value.
+                    let ix_value: Value = serde_json::to_value(&ix).unwrap();
+                    // Check if this is a mintTo instruction from the spl-token program.
+                    if let Some(parsed) = ix_value.get("parsed") {
+                        if parsed.get("type").and_then(|t| t.as_str()) == Some("burn") {
+                            if let Some(info) = parsed.get("info") {
+                                // Check if the mint address in the instruction matches lst_mint_pubkey.
+                                if info.get("mint").and_then(|m| m.as_str()) == Some(&lp_mint_str) {
+                                    if let Some(amount_str) =
+                                        info.get("amount").and_then(|a| a.as_str())
+                                    {
+                                        match amount_str.parse::<u64>() {
+                                            Ok(amount) => {
+                                                println!(
+                                                    "Found burn for mint {}: burnt amount is {}",
+                                                    lp_mint_str, amount
+                                                );
+
+                                                burn_amount = Some(amount);
+                                            }
+                                            Err(e) => {
+                                                eprintln!("Error parsing burnt amount: {}", e);
+                                            }
+                                        };
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            burn_amount
+        } else {
+            None
+        };
+
+        if let Some(error) = result.err {
+            println!("remove_liquidity error: {:?}", error);
+        }
+
+        Ok(ret_value)
     }
 }

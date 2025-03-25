@@ -6056,6 +6056,7 @@ dependencies = [
  "s_controller_interface",
  "sanctum-spl-multi-stake-pool-keys 1.0.0 (git+https://github.com/igneous-labs/S)",
  "sanctum-spl-stake-pool-keys 1.0.0 (git+https://github.com/igneous-labs/S)",
+ "serde_json",
  "serial_test",
  "solana-client",
  "solana-program",
